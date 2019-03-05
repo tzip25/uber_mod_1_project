@@ -9,7 +9,7 @@ def welcome
     #go to antoher sub-menu - will include Ride.all
   elsif get_user_input == 3
     "3. View my locations"
-    #go to antoher sub-menu - will include Locations from one table
+    #go to antoher sub-menu - will include Locations from one table, make sure this has option to delete
   elsif get_user_input == 4
     "4. Exit"
     #exits program
