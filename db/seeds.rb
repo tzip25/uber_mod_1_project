@@ -1,0 +1,43 @@
+flatiron_school = EndLocation.create(name: "Flatiron School", lat: 40.706213, long: -74.014070)
+rockefeller_center = EndLocation.create(name: "Rockefeller Center", lat: 40.758935, long: -73.978674)
+fraunces_tavern = EndLocation.create(name: "Fraunces Tavern", lat: 40.703654, long: -74.011376)
+brooklyn_bowl = EndLocation.create(name: "Brooklyn Bowl", lat: 40.722182, long: -73.957427)
+other_half_brewing = EndLocation.create(name: "Other Half Brewing Co.", lat: 40.674122, long: -73.999059)
+chelsea_piers = EndLocation.create(name: "Chelsea Piers", lat: 40.750562, long: -74.009051)
+bronx_brewery = EndLocation.create(name: "Bronx Brewery", lat: 40.802137, long: -73.910599)
+union_square = EndLocation.create(name: "Union Square", lat: 40.735080, long: -73.991296)
+
+# ryan's seed data
+statue_of_liberty = EndLocation.create(name: "Statue of Liberty", lat: 40.7015353, long: -74.0102696)
+santas_workshop = EndLocation.create(name: "Santa's Workshop", lat: 84.675626, long: 30.436406)
+ryans_home = EndLocation.create(name: "Ryan's Home", lat: 40.722143, long: 73.997611)
+house_of_yes = EndLocation.create(name: "House of Yes", lat: 40.7068169, long: -73.9257891)
+the_whitney = EndLocation.create(name: "The Whitney", lat: 40.7451509, long: -73.9949912)
+chelsea = EndLocation.create(name: "Chelsea", lat: 40.746094, long: 74.001042)
+korea_town = EndLocation.create(name: "Korea Town", lat: 40.747296, long: 73.987009)
+soho = EndLocation.create(name: "Soho", lat: 40.722241, long: 74.002351)
+noho = EndLocation.create(name: "Noho", lat: 40.728274, long: 73.992373)
+east_village = EndLocation.create(name: "East Village", lat: 40.725867, long: 73.984177)
+
+
+#seed start locations
+flatiron_school = StartLocation.create(name: "Flatiron School", lat: 40.706213, long: -74.014070)
+rockefeller_center = StartLocation.create(name: "Rockefeller Center", lat: 40.758935, long: -73.978674)
+fraunces_tavern = StartLocation.create(name: "Fraunces Tavern", lat: 40.703654, long: -74.011376)
+brooklyn_bowl = StartLocation.create(name: "Brooklyn Bowl", lat: 40.722182, long: -73.957427)
+other_half_brewing = StartLocation.create(name: "Other Half Brewing Co.", lat: 40.674122, long: -73.999059)
+chelsea_piers = StartLocation.create(name: "Chelsea Piers", lat: 40.750562, long: -74.009051)
+bronx_brewery = StartLocation.create(name: "Bronx Brewery", lat: 40.802137, long: -73.910599)
+union_square = StartLocation.create(name: "Union Square", lat: 40.735080, long: -73.991296)
+
+# ryan's seed data
+statue_of_liberty = StartLocation.create(name: "Statue of Liberty", lat: 40.7015353, long: -74.0102696)
+santas_workshop = StartLocation.create(name: "Santa's Workshop", lat: 84.675626, long: 30.436406)
+ryans_home = StartLocation.create(name: "Ryan's Home", lat: 40.722143, long: 73.997611)
+house_of_yes = StartLocation.create(name: "House of Yes", lat: 40.7068169, long: -73.9257891)
+the_whitney = StartLocation.create(name: "The Whitney", lat: 40.7451509, long: -73.9949912)
+chelsea = StartLocation.create(name: "Chelsea", lat: 40.746094, long: 74.001042)
+korea_town = StartLocation.create(name: "Korea Town", lat: 40.747296, long: 73.987009)
+soho = StartLocation.create(name: "Soho", lat: 40.722241, long: 74.002351)
+noho = StartLocation.create(name: "Noho", lat: 40.728274, long: 73.992373)
+east_village = StartLocation.create(name: "East Village", lat: 40.725867, long: 73.984177)

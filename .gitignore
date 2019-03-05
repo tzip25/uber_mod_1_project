@@ -1,0 +1,14 @@
+.DS_Store
+.idea
+.env
+
+log
+node_modules
+out
+tmp
+
+*.iml
+*.log
+*.swp
+
+db/*.db
