@@ -12,6 +12,7 @@ user_selection = gets.chomp.to_i
     #get list of addresses from database
     view_all_locations
     "Choose from the locations above."
+    #TODO update number validations for this
     run_new_ride
   elsif user_selection == 3
     welcome
