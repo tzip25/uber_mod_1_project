@@ -1,3 +1,65 @@
+<!-- #Uber Project Planning
+
+User Stories
+- [x] A user should be able to enter an address and retrieve a nicely formatted set of price estimates
+- [x] A user should be able to see previous rides
+- [x] A user should be able to see a list of locations
+- [ ] A user should be able to update a list of locations
+- [x] A user should be able to exit out of the 
+    - [x] previous rides
+    - [x] locations
+    - [x] estimate page
+- [x] A user should be able to favorite locations
+- [ ] A user should be able to remove favorites (waiting on bugs)
+- [ ] A user should be able to favorite rides
+
+Bonus User Stories:
+- [ ] A user should be able to compare Lyft and uber prices
+- [ ] A user should be able to choose “optimized estimates”
+- [ ] Use a user oauth to get real estimates
+- [ ] A user should be able to enter in the name of a location and get address options
+
+Steps for each user story:
+- [ ] CLI UX Designed
+- [ ] CLI Database Interaction Designed
+- [ ] Any other methods that are obvious
+- [ ] CLI Coded
+- [ ] Database Coded
+- [ ] Changes Code Reviewed by Partner
+- [ ] Changes Merged
+
+Enhancements:
+- [x] Add delete favorite
+- [ ] Add delete location
+- [ ] Least expensive ride
+- [ ] Most expensive ride
+- [ ] Longest ride
+- [ ] Shortest ride
+- [ ] Avg estimate
+- [ ] Add number functionality to select ride from previous locations
+
+Bonus Design:
+- [ ] Tali - Each menu takes up window
+- [ ] Tali - Each menu has a title
+- [ ] Ryan - Loading ux
+- [ ] Ryan - Graphics or colors
+Optional optional:
+    - [ ] Nice logo
+    - [ ] Sounds
+
+Bug List:
+- [x] If geocoder has slightly different lat/long
+- [ ] Multiple puts of view locations after trying to remove a favorite
+- [ ] Tali - Handle errors when geocoded address doesn’t work
+- [ ] 	Warning if address is not recognized aka weird string
+- [ ] 	Handle commas in address
+- [ ] 	Handle no city or zip code
+- [ ] Ryan - Handle errors when we get an abnormal uber api response
+    - [ ] More than 100 miles
+    - [ ] When one is a zero
+- [ ] View locations (make the list one list and the entries unique)
+# -->
+
 # Module One Final Project Guidelines
 
 Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
