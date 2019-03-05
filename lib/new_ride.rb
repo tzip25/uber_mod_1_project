@@ -40,5 +40,11 @@ def persist_ride
     puts "#{ride["display_name"]}: #{ride["estimate"]}"  
     end
     puts "↑ Check out those sweet ride options!"
-  binding.pry
+end
+
+def create_runner
+  get_start_address
+  get_end_address
+  get_uber_api
+  persist_ride
 end
