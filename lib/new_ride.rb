@@ -1,7 +1,7 @@
 def new_ride_menu
 
 puts "1. Enter a new address"
-puts "2. See a list of previous address to choose from"
+puts "2. See a list of previous addresses to choose from"
 puts "3. Go back to main menu"
 user_selection = gets.chomp.to_i
 
@@ -10,16 +10,7 @@ user_selection = gets.chomp.to_i
     run_new_ride
   elsif user_selection == 2
     #get list of addresses from database
-    StartLocation.all.each_with_index do |start_location, i|
-      if i < 5
-        puts "#{i+1}: #{start_location.name}"
-      end
-    end
-    EndLocation.all.each_with_index do |end_location, i|
-      if i < 5
-        puts "#{i+1}: #{end_location.name}"
-      end
-    end
+    view_all_locations
     "Choose from the locations above."
     run_new_ride
   elsif user_selection == 3
