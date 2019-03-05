@@ -42,7 +42,7 @@ Bonus Design:
 - [ ] Tali - Each menu takes up window
 - [ ] Tali - Each menu has a title
 - [ ] Ryan - Loading ux
-- [ ] Ryan - Graphics or colors
+- [X] Ryan - Graphics or colors (bgimg)
 Optional optional:
     - [ ] Nice logo
     - [ ] Sounds
