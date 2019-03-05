@@ -21,6 +21,7 @@ user_selection = gets.chomp.to_i
       end
     end
     "Choose from the locations above."
+    run_new_ride
   elsif user_selection == 3
     welcome
   else
@@ -37,13 +38,12 @@ def get_start_address
 
   #Translates address into lat/long
   results = Geocoder.search(start_address)
-  puts results.first.inspect
   results.first.coordinates
 
   #Persist start location in start and end location tables to maintain integrity
-  StartLocation.find_or_create_by(name: start_address, lat: results.first.coordinates[0], long: results.first.coordinates[1])
+  new_start_location = StartLocation.find_or_create_by(name: start_address, lat: results.first.coordinates[0], long: results.first.coordinates[1])
 
-  puts "Ride will start from #{start_address}"
+  "Ride will start from #{new_start_location.name}"
 end
 
 
@@ -54,12 +54,11 @@ def get_end_address
 
   #Translates address into lat/long
   results = Geocoder.search(end_address)
-  puts results.first.inspect
   results.first.coordinates
 
   #Persist end location in end and end location tables to maintain integrity
   EndLocation.find_or_create_by(name: end_address, lat: results.first.coordinates[0], long: results.first.coordinates[1])
-  puts "Ride will end at #{end_address}"
+  "Ride will end at #{end_address}"
 end
 
 def persist_ride
@@ -71,8 +70,9 @@ def persist_ride
 end
 
 def run_new_ride
-  get_start_address
-  get_end_address
-  get_uber_api
-  persist_ride
+    get_start_address
+    get_end_address
+    get_uber_api
+    persist_ride
+    new_ride_menu
 end

@@ -12,6 +12,7 @@ def welcome
     new_ride_menu
   elsif get_user_input == 2
     #go to antoher sub-menu - will include Ride.all
+    show_rides
   elsif get_user_input == 3
     #go to antoher sub-menu - will include Locations from one table, make sure this has option to delete
   elsif get_user_input == 4
