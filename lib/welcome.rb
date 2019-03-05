@@ -15,6 +15,7 @@ def welcome
     show_rides
   elsif get_user_input == 3
     #go to antoher sub-menu - will include Locations from one table, make sure this has option to delete
+    view_locations
   elsif get_user_input == 4
     #exits program
   else
