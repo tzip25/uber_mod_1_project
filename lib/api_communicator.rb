@@ -50,7 +50,7 @@ end
 
 def display_results
   get_uber_api["prices"].map do |ride|
-    puts "#{ride["display_name"]}: #{ride["estimate"]}\n"
+    puts "#{ride["display_name"]}: #{ride["estimate"]}"
   end
   puts "↑ Check out those sweet ride options!"
 end
@@ -59,17 +59,4 @@ def get_uber_ride_types
   get_uber_api["prices"].map do |ride|
     ride["display_name"]
   end
-end
-
-def geocoder
-  results = Geocoder.search("240 East 4th St 10009")
-  results.first.coordinates
-end
-
-def latitude
-  geocoder[0]
-end
-
-def longitude
-  geocoder[1]
 end
