@@ -18,6 +18,7 @@ def welcome
     view_locations
   elsif get_user_input == 4
     #exits program
+    exit
   else
     "Please enter a valid option"
   end
