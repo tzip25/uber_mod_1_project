@@ -10,38 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190304213650) do
+ActiveRecord::Schema.define(version: 2019_03_04_213650) do
 
   create_table "end_locations", force: :cascade do |t|
-    t.string   "name"
-    t.float    "lat"
-    t.float    "long"
-    t.boolean  "favorite"
+    t.string "name"
+    t.float "lat"
+    t.float "long"
+    t.boolean "favorite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "rides", force: :cascade do |t|
-    t.string   "name"
-    t.string   "product_type"
-    t.integer  "start_location_id"
-    t.integer  "end_location_id"
-    t.boolean  "favorite"
-    t.integer  "duration"
-    t.integer  "distance"
-    t.float    "low_estimate"
-    t.float    "high_estimate"
-    t.float    "avg_estimate"
-    t.string   "estimate"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string "name"
+    t.string "product_type"
+    t.integer "start_location_id"
+    t.integer "end_location_id"
+    t.boolean "favorite"
+    t.integer "duration"
+    t.integer "distance"
+    t.float "low_estimate"
+    t.float "high_estimate"
+    t.float "avg_estimate"
+    t.string "estimate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "start_locations", force: :cascade do |t|
-    t.string   "name"
-    t.float    "lat"
-    t.float    "long"
-    t.boolean  "favorite"
+    t.string "name"
+    t.float "lat"
+    t.float "long"
+    t.boolean "favorite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
