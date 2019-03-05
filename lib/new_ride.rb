@@ -4,14 +4,16 @@ puts "1. Enter a new address"
 puts "2. See a list of previous addresses to choose from"
 puts "3. Go back to main menu"
 user_selection = gets.chomp.to_i
+system "clear"
+puts "\e[H\e[2J"
 
   if user_selection == 1
     #run new_ride_menu using runner method
     run_new_ride
   elsif user_selection == 2
     #get list of addresses from database
+    puts "Please choose from the locations below."
     view_all_locations
-    "Choose from the locations above."
     run_new_ride
   elsif user_selection == 3
     welcome

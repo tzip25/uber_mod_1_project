@@ -6,6 +6,10 @@ def welcome
   puts "3. View my locations"
   puts "4. Exit"
   get_user_input =  gets.chomp.to_i
+  system "clear"
+  puts "\e[H\e[2J"
+
+
 
   if get_user_input == 1
     #run new_ride.rb methods
