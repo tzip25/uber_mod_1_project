@@ -1,12 +1,35 @@
 def show_rides
-  puts "Here is the data from your last price check:"
-  puts "\n"
-  #todo - instead of last five, show each product type of the last ride name
-  Ride.last(10).each do |ride|
-  puts "#{ride.name}: #{ride.product_type} | #{ride.estimate} "
+  # puts "Here is the data from your last price check:"
+  # puts "\n"
+  # #todo - instead of last five, show each product type of the last ride name
+  # Ride.last(10).each do |ride|
+  # puts "#{ride.name}: #{ride.product_type} | #{ride.estimate} "
+  #
+  # end
+  # puts "-----------------------------------------------------"
+  # puts "\n"
+  # welcome
+  puts "Ride Menu:"
+  puts "1. View by route"
+  puts "2. View by ride type"
+  puts "3. View Favorites"
+  puts "4. Go back to Main menu"
 
+  user_input = gets.chomp.to_i
+  system "clear"
+  puts "\e[H\e[2J"
+
+  if user_input == 1
+    run_routes
+  elsif user_input == 2
+  elsif user_input == 3
+  elsif user_input == 4
+   welcome
   end
-  puts "-----------------------------------------------------"
-  puts "\n"
-  welcome
 end
+
+
+  def view_by_ride_type
+    #will give a unique list of ride types (i.e. UberX, XL, Lyft, Lyft Line...)
+    #will return all rides for selected type
+  end

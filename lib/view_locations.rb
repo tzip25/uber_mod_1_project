@@ -111,8 +111,8 @@ def view_favorite_locations
       #update start and end location in database with favorite
       StartLocation.where(name: location_name).update(favorite: true)
       EndLocation.where(name: location_name).update(favorite: true)
+      view_favorite_locations
     end
-    view_favorite_locations
   end
 
   def remove_favorite_location
@@ -133,6 +133,7 @@ def view_favorite_locations
       #update start and end location in database with favorite
       StartLocation.where(name: location_name).update(favorite: false)
       EndLocation.where(name: location_name).update(favorite: false)
+      view_favorite_locations
     end
-    view_favorite_locations
+
   end

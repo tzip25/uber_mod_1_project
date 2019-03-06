@@ -10,14 +10,16 @@ User Stories
     - [x] locations
     - [x] estimate page
 - [x] A user should be able to favorite locations
-- [ ] A user should be able to remove favorites (waiting on bugs)
+- [x] A user should be able to remove favorites (waiting on bugs)
 - [ ] A user should be able to favorite rides
 
 Bonus User Stories:
-- [ ] A user should be able to compare Lyft and uber prices
+- [x] A user should be able to compare Lyft and uber prices
+  - [ ] format into columns
 - [ ] A user should be able to choose “optimized estimates”
 - [ ] Use a user oauth to get real estimates
 - [ ] A user should be able to enter in the name of a location and get address options
+- [ ] Implement unit testing
 
 Steps for each user story:
 - [ ] CLI UX Designed
@@ -31,6 +33,8 @@ Steps for each user story:
 Enhancements:
 - [x] Add delete favorite
 - [ ] Add delete location
+- [ ] View ride history by type
+    - [ ] by route
 - [ ] Least expensive ride
 - [ ] Most expensive ride
 - [ ] Longest ride
@@ -61,6 +65,7 @@ Bug List:
     - [ ] More than 100 miles
     - [ ] When one is a zero
 - [ ] View locations (make the list one list and the entries unique)
+- [ ] catch menu errors - user cannot enter number above available options
 # -->
 
 # Module One Final Project Guidelines
