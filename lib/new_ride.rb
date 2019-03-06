@@ -1,5 +1,6 @@
 
 def new_ride_menu
+puts "New Ride Menu"
 puts "1. Enter a new address"
 puts "2. See a list of previous addresses to choose from"
 puts "3. Go back to main menu"
@@ -30,16 +31,22 @@ def get_start_address
   #Gets user's address to start uber ride
   puts "Please enter the exact start address with a zip code:"
   user_start_address = gets.chomp.to_s
-
   #Translates address into lat/long
   results = Geocoder.search(user_start_address)
-  results.first.coordinates
+  # binding.pry
+  #check if address returns a NoMethodErro (i.e. address is not valid)
+  if results.empty?
+    puts "That is not a valid address."
+    get_start_address
 
-  #Persist start location in start and end location tables to maintain integrity
-  new_start_location = StartLocation.find_or_create_by(name: user_start_address, lat: results.first.coordinates[0], long: results.first.coordinates[1])
+  else
+    results.first.coordinates
+    #Persist start location in start and end location tables to maintain integrity
+    new_start_location = StartLocation.find_or_create_by(name: user_start_address, lat: results.first.coordinates[0], long: results.first.coordinates[1])
 
-  puts "Ride will start from #{new_start_location.name}"
-  new_start_location
+    puts "Ride will start from #{new_start_location.name}"
+    new_start_location
+  end
 end
 
 
