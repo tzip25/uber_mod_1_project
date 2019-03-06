@@ -5,7 +5,7 @@ User Stories
 - [x] A user should be able to see previous rides
 - [x] A user should be able to see a list of locations
 - [ ] A user should be able to update a list of locations
-- [x] A user should be able to exit out of the 
+- [x] A user should be able to exit out of the
     - [x] previous rides
     - [x] locations
     - [x] estimate page
@@ -49,11 +49,14 @@ Optional optional:
 
 Bug List:
 - [x] If geocoder has slightly different lat/long
+- [x] fix view rides - not showing ride name
+  - [ ] also want to rework this feature in general
+- [ ] If new ride is started with address that is not already in database, it does not have a name to display
 - [ ] Multiple puts of view locations after trying to remove a favorite
 - [ ] Tali - Handle errors when geocoded address doesn’t work
 - [ ] 	Warning if address is not recognized aka weird string
-- [ ] 	Handle commas in address
-- [ ] 	Handle no city or zip code
+- [x] 	Handle commas in address
+- [x] 	Handle no city or zip code
 - [ ] Ryan - Handle errors when we get an abnormal uber api response
     - [ ] More than 100 miles
     - [ ] When one is a zero

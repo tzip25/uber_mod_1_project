@@ -1,6 +1,6 @@
 def view_locations
 
-  puts "Locations Menu"
+  puts "Locations Menu:"
   puts "1. View recent locations"
   puts "2. View all locations"
   puts "3. View Favorite locations"
@@ -22,7 +22,6 @@ def view_locations
     view_all_locations
 
   elsif user_input == 3
-    puts "Favorite Locations:"
     #show favorites
     view_favorite_locations
 
@@ -40,7 +39,7 @@ def view_locations
     "Please select an option from above"
     view_locations
   end
-
+  puts "\n"
   view_locations
 end
 
@@ -87,6 +86,7 @@ def view_favorite_locations
       puts "\n"
       view_locations
     else
+      puts "Favorite Locations:"
       get_favorite_locations_array.each_with_index do |location, i|
         puts "#{i+1}. #{location}"
       end
@@ -96,9 +96,12 @@ def view_favorite_locations
   def add_favorite_location
     #add a location to favorites
     view_all_locations
+    puts "\n"
     puts "Please enter the location number you want to add to favorites:"
     #get favorite location name
     favorite_location_number = gets.chomp.to_i
+    system "clear"
+    puts "\e[H\e[2J"
 
     if favorite_location_number == 0 || favorite_location_number > get_uniq_locations.length
       puts "Please enter a number between 1 and #{get_uniq_locations.length}"
@@ -115,9 +118,12 @@ def view_favorite_locations
   def remove_favorite_location
     #delete a location from favorites
     view_favorite_locations
+    puts "\n"
     puts "Please enter the location number you want to remove from Favorites:"
     #get favorite location name
     favorite_to_remove = gets.chomp.to_i
+    system "clear"
+    puts "\e[H\e[2J"
 
     if favorite_to_remove == 0 || favorite_to_remove > get_favorite_locations_array.length
       puts "Please enter a number between 1 and #{get_favorite_locations_array.length}"
@@ -130,5 +136,3 @@ def view_favorite_locations
     end
     view_favorite_locations
   end
-
-  
