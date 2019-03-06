@@ -1,9 +1,7 @@
 require 'net/http'
 require 'uri'
 
-
-
-######### Uber API ################# 
+######### Uber API #################
 # Think there is a bug here - when there is an error with the api we do not persist the ride so geting locations from db doesn't work
 # To solve this may wnat to review get_start_address/get_end_address and whether we can get lat long from them
 def get_uber_api(start_address, end_address)
@@ -40,24 +38,24 @@ spinner.stop('Done!') # Stop animation
     run_new_ride
   end
 end
-
-################### METHODS ##################
-def save_UberX_ride
-  get_uber_api["prices"].each do |ride|
-    # binding.pry
-    # Ride.create(ride, start_location_id: )
-  end
-end
-
-# def display_results
-#   get_uber_api["prices"].map do |ride|
-#     puts "#{ride["display_name"]}: #{ride["estimate"]}"
+#
+# ################### METHODS ##################
+# def save_UberX_ride
+#   get_uber_api["prices"].each do |ride|
+#     # binding.pry
+#     # Ride.create(ride, start_location_id: )
 #   end
-#   puts "↑ Check out those sweet ride options!"
 # end
-
-def get_uber_ride_types
-  get_uber_api["prices"].map do |ride|
-    ride["display_name"]
-  end
-end
+#
+# # def display_results
+# #   get_uber_api["prices"].map do |ride|
+# #     puts "#{ride["display_name"]}: #{ride["estimate"]}"
+# #   end
+# #   puts "↑ Check out those sweet ride options!"
+# # end
+#
+# def get_uber_ride_types
+#   get_uber_api["prices"].map do |ride|
+#     ride["display_name"]
+#   end
+# end
