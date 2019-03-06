@@ -1,5 +1,5 @@
 def welcome
-  puts "Welcome to our sweet ride app!"
+  puts "Main Menu"
   puts "1. Start a new ride"
   puts "2. Find previous rides"
   puts "3. View my locations"
