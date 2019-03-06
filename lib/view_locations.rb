@@ -8,6 +8,8 @@ def view_locations
   puts "5. Remove a location from Favorites"
   puts "6. Go back to Main menu"
   user_input = gets.chomp.to_i
+  system "clear"
+  puts "\e[H\e[2J"
 
   if user_input == 1
   #todo - instead of last five, show each product type of the last ride name
@@ -81,7 +83,8 @@ end
 
 def view_favorite_locations
     if get_favorite_locations_array.empty?
-      puts "You don't have any Favorites!"
+      puts "You don't have any Favorites! Why don't you add one?"
+      puts "\n"
       view_locations
     else
       get_favorite_locations_array.each_with_index do |location, i|
@@ -124,7 +127,8 @@ def view_favorite_locations
       #update start and end location in database with favorite
       StartLocation.where(name: location_name).update(favorite: false)
       EndLocation.where(name: location_name).update(favorite: false)
-      binding.pry
     end
     view_favorite_locations
   end
+
+  
