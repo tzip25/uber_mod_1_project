@@ -1,4 +1,29 @@
 def favorite_rides
+  if get_favorite_rides_array.empty?
+    puts "You don't have any Favorites! Why don't you add one?"
+    puts "\n"
+    puts "Favorite Ride Menu"
+    puts "1. Add a ride to Favorites"
+    puts "2. Remove a ride from Favorites"
+    puts "3. Go back to rides menu"
+    user_input = gets.chomp.to_i
+    system "clear"
+    puts "\e[H\e[2J"
+
+    if user_input == 1
+      add_favorite_ride
+    elsif user_input == 2
+      remove_favorite_rides    
+    elsif user_input == 3
+      show_rides
+    else
+      puts "*Error: Please select an option from the Favorite Ride Menu below:*"
+      puts "\n"
+      favorite_rides
+    end
+      puts "\n"
+      favorite_rides
+  else
   view_favorite_rides
   puts "\n"
   puts "Favorite Ride Menu"
@@ -23,6 +48,7 @@ def favorite_rides
     puts "\n"
     favorite_rides
   end
+end
 
 
 def get_uniq_rides
