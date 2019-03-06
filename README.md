@@ -47,11 +47,13 @@ Bonus Design:
 - [ ] Tali - Each menu has a title
 - [ ] Ryan - Loading ux
 - [X] Ryan - Graphics or colors (bgimg)
+- [] Format the estimates
 Optional optional:
     - [ ] Nice logo
     - [ ] Sounds
 
 Bug List:
+- [] Database locations show correct names but ride name has blanks
 - [x] If geocoder has slightly different lat/long
 - [x] fix view rides - not showing ride name
   - [ ] also want to rework this feature in general
