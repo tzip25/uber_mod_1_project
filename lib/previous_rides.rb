@@ -27,6 +27,8 @@ def show_rides
   elsif user_input == 3
   elsif user_input == 4
    welcome
+  else
+    #error handling
   end
 end
 

@@ -32,5 +32,7 @@
 
 def run_view_routes
   view_by_route
+  puts "\n"
   select_route
+  puts "\n"
 end
