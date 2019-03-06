@@ -41,16 +41,15 @@ def get_start_address
 
   else
     results.first.coordinates
-    #Persist start location in start and end location tables to maintain integrity
+    #Persist start location in start table to maintain integrity/reduce duplicates
     new_start_location = StartLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
     StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_start_address)
-    name = StartLocation.last.name
-    #persist end location so that we can don't end up with duplicates
+    #Persist end location in end table to maintain integrity/reduce duplicates
     new_end_location = EndLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
     EndLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_start_address)
-    name = EndLocation.last.name
+    EndLocation.last.name
     #tell the rider where their ride starts and return the address
-    puts "Ride will start from #{name}"
+    puts "Ride will start from #{new_start_location.name}"
     new_start_location
   end
 end
@@ -63,12 +62,25 @@ def get_end_address
 
   #Translates address into lat/long
   results = Geocoder.search(user_end_address)
-  results.first.coordinates
 
-  #Persist end location in end and end location tables to maintain integrity
-  new_end_location = EndLocation.find_or_create_by(name: user_end_address, lat: results.first.coordinates[0], long: results.first.coordinates[1])
-  puts "Ride will end at #{new_end_location.name}"
-  new_end_location
+  if results.empty?
+    puts "That is not a valid address."
+    get_end_address
+
+  else
+    results.first.coordinates
+
+    #Persist end location in end table to maintain integrity/reduce duplicates
+    new_end_location = EndLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
+    EndLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_end_address)
+    #Persist start location in start table to maintain integrity/reduce duplicates
+    new_start_location = StartLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
+    StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_end_address)
+    StartLocation.last.name
+    #tell the rider where their ride ends and return the address
+    puts "Ride will end at #{new_end_location.name}"
+    new_end_location
+  end
 end
 
 def persist_ride(api_response, start_address, end_address)
