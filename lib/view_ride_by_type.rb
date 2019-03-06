@@ -10,6 +10,13 @@ def pick_type
   get_user_input =  gets.chomp.to_i
   system "clear"
   puts "\e[H\e[2J"
+  if Ride.all.empty?
+    puts "You don't have any rides yet!"
+    puts "\n"
+    welcome
+  else
+  system "clear"
+  puts "\e[H\e[2J"
   if get_user_input == 1
     ride_date_by_type("UberX", "lyft")
   elsif get_user_input == 2
@@ -25,6 +32,7 @@ def pick_type
   else
     #add error handling 
   end
+end
 end
 
 def ride_date_by_type(uber, lyft)

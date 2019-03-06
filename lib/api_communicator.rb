@@ -40,24 +40,4 @@ spinner.stop('Done!') # Stop animation
     run_new_ride
   end
 end
-#
-# ################### METHODS ##################
-# def save_UberX_ride
-#   get_uber_api["prices"].each do |ride|
-#     # binding.pry
-#     # Ride.create(ride, start_location_id: )
-#   end
-# end
-#
-# # def display_results
-# #   get_uber_api["prices"].map do |ride|
-# #     puts "#{ride["display_name"]}: #{ride["estimate"]}"
-# #   end
-# #   puts "↑ Check out those sweet ride options!"
-# # end
-#
-# def get_uber_ride_types
-#   get_uber_api["prices"].map do |ride|
-#     ride["display_name"]
-#   end
-# end
+

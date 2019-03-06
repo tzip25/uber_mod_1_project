@@ -1,4 +1,5 @@
   def view_by_route
+    #TODO add conditional for no routes
     #will give a unique list of ride names
     #will return all the rides with the name of selected ride
     rides_arr = Ride.all.map { |ride| ride.name }.uniq
@@ -7,6 +8,11 @@
   end
 
   def select_route
+    if view_by_route.empty?
+    puts "You don't have any rides yet!"
+    puts "\n"
+    welcome
+    else
     puts "Please select a route"
     user_input = gets.chomp.to_i
     system "clear"
@@ -29,6 +35,7 @@
       end
     end
   end
+end
 
 def run_view_routes
   view_by_route

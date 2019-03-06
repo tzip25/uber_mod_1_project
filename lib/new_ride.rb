@@ -50,7 +50,6 @@ def get_start_address
     EndLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_start_address)
     #tell the rider where their ride starts and return the address
     start_name = new_start_location.name
-    puts "Ride will start from #{start_name}"
     new_start_location
   end
 end
@@ -77,16 +76,16 @@ def get_end_address
     StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_end_address)
     #tell the rider where their ride ends and return the address
     end_name = new_end_location.name
-    puts "Ride will end at #{end_name}"
     new_end_location
   end
 end
 
 def persist_ride(api_response, start_address, end_address)
+    ride_name = "#{start_address.name} to #{end_address.name}"
     puts "\n↓ Check out these sweet Uber options!"
     api_response["prices"].each do |ride|
     #persist ride in database
-    Ride.find_or_create_by(name: "#{start_address.name} to #{end_address.name}", start_location_id: start_address.id, end_location_id: end_address.id, product_type: ride["display_name"], estimate: ride["estimate"], high_estimate: ride["high_estimate"], low_estimate: ride["low_estimate"], distance: ride["distance"], duration: ride["duration"])
+    Ride.find_or_create_by(name: ride_name, start_location_id: start_address.id, end_location_id: end_address.id, product_type: ride["display_name"], estimate: ride["estimate"], high_estimate: ride["high_estimate"], low_estimate: ride["low_estimate"], distance: ride["distance"], duration: ride["duration"])
     # puts "Data for ride from #{start_address.name} to #{end_address.name}"
     puts "#{ride["display_name"]}: #{ride["estimate"]}"
     end
