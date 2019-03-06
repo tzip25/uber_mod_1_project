@@ -4,6 +4,7 @@ puts "1. Enter a new address"
 puts "2. See a list of previous addresses to choose from"
 puts "3. Go back to main menu"
 user_selection = gets.chomp.to_i
+#use below to "clear" terminal windown before proceeding
 system "clear"
 puts "\e[H\e[2J"
 
