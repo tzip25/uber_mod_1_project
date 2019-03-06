@@ -30,7 +30,7 @@
     end
   end
 
-def run_routes
+def run_view_routes
   view_by_route
   select_route
 end

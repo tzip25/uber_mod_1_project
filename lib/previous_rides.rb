@@ -20,8 +20,10 @@ def show_rides
   puts "\e[H\e[2J"
 
   if user_input == 1
-    run_routes
+    run_view_routes
   elsif user_input == 2
+    #run ride_by_type
+    run_ride_by_type
   elsif user_input == 3
   elsif user_input == 4
    welcome
