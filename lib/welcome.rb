@@ -1,7 +1,7 @@
 def welcome
   puts "Main Menu"
   puts "1. Start a new ride"
-  puts "2. Find previous rides"
+  puts "2. View ride history"
   puts "3. View my locations"
   puts "4. Exit"
   puts "\nPlease enter your selection:"
