@@ -4,14 +4,14 @@ User Stories
 - [x] A user should be able to enter an address and retrieve a nicely formatted set of price estimates
 - [x] A user should be able to see previous rides
 - [x] A user should be able to see a list of locations
-- [ ] A user should be able to update a list of locations
+- [X] A user should be able to update a list of locations
 - [x] A user should be able to exit out of the
     - [x] previous rides
     - [x] locations
     - [x] estimate page
 - [x] A user should be able to favorite locations
 - [x] A user should be able to remove favorites (waiting on bugs)
-- [ ] A user should be able to favorite rides
+- [X] A user should be able to favorite rides
 
 Bonus User Stories:
 - [x] A user should be able to compare Lyft and uber prices
@@ -33,8 +33,8 @@ Steps for each user story:
 Enhancements:
 - [x] Add delete favorite
 - [ ] Add delete location
-- [ ] View ride history by type
-    - [ ] by route
+- [X] View ride history by type
+    - [X] by route
 - [ ] Least expensive ride
 - [ ] Most expensive ride
 - [ ] Longest ride
@@ -43,9 +43,9 @@ Enhancements:
 - [ ] Add number functionality to select ride from previous locations
 
 Bonus Design:
-- [ ] Tali - Each menu takes up window
+- [X] Tali - Each menu takes up window
 - [ ] Tali - Each menu has a title
-- [ ] Ryan - Loading ux
+- [ ] Ryan - Loading ux into other place
 - [X] Ryan - Graphics or colors (bgimg)
 - [] Format the estimates
 Optional optional:
@@ -54,20 +54,16 @@ Optional optional:
 
 Bug List:
 - [] Database locations show correct names but ride name has blanks
+- - [ ] catch menu errors - user cannot enter number above available options
+  - [ ] Fix on all menus
 - [x] If geocoder has slightly different lat/long
 - [x] fix view rides - not showing ride name
-  - [ ] also want to rework this feature in general
-- [ ] If new ride is started with address that is not already in database, it does not have a name to display
-- [ ] Multiple puts of view locations after trying to remove a favorite
-- [ ] Tali - Handle errors when geocoded address doesn’t work
-- [ ] 	Warning if address is not recognized aka weird string
-- [x] 	Handle commas in address
-- [x] 	Handle no city or zip code
-- [ ] Ryan - Handle errors when we get an abnormal uber api response
-    - [ ] More than 100 miles
-    - [ ] When one is a zero
-- [ ] View locations (make the list one list and the entries unique)
-- [ ] catch menu errors - user cannot enter number above available options
+  - [x] also want to rework this feature in general
+- [x] Multiple puts of view locations after trying to remove a favorite
+- [x] Tali - Handle errors when geocoded address doesn’t work
+- [X] Ryan - Handle errors when we get an abnormal uber api response
+    - [X] More than 100 miles
+- [X] View locations (make the list one list and the entries unique)
 # -->
 
 # Module One Final Project Guidelines
