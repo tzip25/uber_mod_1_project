@@ -42,9 +42,15 @@ def get_start_address
   else
     results.first.coordinates
     #Persist start location in start and end location tables to maintain integrity
-    new_start_location = StartLocation.find_or_create_by(name: user_start_address, lat: results.first.coordinates[0], long: results.first.coordinates[1])
-
-    puts "Ride will start from #{new_start_location.name}"
+    new_start_location = StartLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
+    StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_start_address)
+    name = StartLocation.last.name
+    #persist end location so that we can don't end up with duplicates
+    new_end_location = EndLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
+    EndLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_start_address)
+    name = EndLocation.last.name
+    #tell the rider where their ride starts and return the address
+    puts "Ride will start from #{name}"
     new_start_location
   end
 end
