@@ -1,11 +1,13 @@
-
 def welcome
   puts "Welcome to our sweet ride app!"
   puts "1. Start a new ride"
   puts "2. Find previous rides"
   puts "3. View my locations"
   puts "4. Exit"
+  puts "\nPlease enter your selection:"
   get_user_input =  gets.chomp.to_i
+  system "clear"
+  puts "\e[H\e[2J"
 
   if get_user_input == 1
     #run new_ride.rb methods

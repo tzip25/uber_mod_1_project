@@ -4,14 +4,16 @@ puts "1. Enter a new address"
 puts "2. See a list of previous addresses to choose from"
 puts "3. Go back to main menu"
 user_selection = gets.chomp.to_i
+system "clear"
+puts "\e[H\e[2J"
 
   if user_selection == 1
     #run new_ride_menu using runner method
     run_new_ride
   elsif user_selection == 2
+    puts "Choose from the locations below."
     #get list of addresses from database
     view_all_locations
-    "Choose from the locations above."
     #TODO update number validations for this
     run_new_ride
   elsif user_selection == 3
@@ -42,7 +44,7 @@ end
 
 def get_end_address
   #Gets user's address to start uber ride
-  puts "Please enter the exact end address with a zip code:"
+  puts "\nPlease enter the exact end address with a zip code:"
   user_end_address = gets.chomp.to_s
 
   #Translates address into lat/long
@@ -56,12 +58,13 @@ def get_end_address
 end
 
 def persist_ride(api_response, start_address, end_address)
+    puts "\n↓ Check out these sweet ride options!"
     api_response["prices"].each do |ride|
     Ride.find_or_create_by(name: "#{start_address.name} to #{end_address.name}", start_location_id: start_address.id, end_location_id: end_address.id, product_type: ride["display_name"], estimate: ride["estimate"], high_estimate: ride["high_estimate"], low_estimate: ride["low_estimate"], distance: ride["distance"], duration: ride["duration"])
-    puts "Data for ride from #{start_address.name} to #{end_address.name}"
+    # puts "Data for ride from #{start_address.name} to #{end_address.name}"
     puts "#{ride["display_name"]}: #{ride["estimate"]}"
     end
-    puts "↑ Check out those sweet ride options!"
+    puts "-----------------------------------"
 end
 
 def run_new_ride
