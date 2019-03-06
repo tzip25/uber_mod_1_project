@@ -24,6 +24,8 @@ end
 response.code
 body = response.body
 response = JSON.parse(body)
+
+puts "\n"
 #spinner
 spinner = TTY::Spinner.new(format: :arrow_pulse)
 spinner.auto_spin # Automatic animation with default interval
