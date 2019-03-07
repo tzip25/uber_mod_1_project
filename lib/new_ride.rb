@@ -125,7 +125,7 @@ def select_from_previous_locations
 end
 
 def self.run_new_ride #had self.
-  
+
     start_address = get_start_address
     end_address = get_end_address
 

@@ -40,12 +40,8 @@ def view_favorite_rides
 end
 
 def add_favorite_ride
-  system "clear"
-  puts "\e[H\e[2J"
   #title page------
-  pastel = Pastel.new
-  font = TTY::Font.new(:doom)
-  puts pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+  title
   #end title page----
 
   if get_uniq_rides.empty?
@@ -58,12 +54,8 @@ def add_favorite_ride
     puts "Please enter the ride number you want to add to favorites:"
     #get favorite ride name
     favorite_ride_number = get_user_input.to_i
-    system "clear"
-    puts "\e[H\e[2J"
     #title page------
-    pastel = Pastel.new
-    font = TTY::Font.new(:doom)
-    puts pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+    title
     #end title page----
   end
 
@@ -81,12 +73,8 @@ def add_favorite_ride
 end
 
 def remove_favorite_rides
-  system "clear"
-  puts "\e[H\e[2J"
   #title page------
-  pastel = Pastel.new
-  font = TTY::Font.new(:doom)
-  puts pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+  title
   #end title page----
 
   if get_uniq_rides.empty?
@@ -100,12 +88,8 @@ def remove_favorite_rides
     puts "Please enter the rides number you want to remove from Favorites:"
     #get favorite rides name
     favorite_to_remove = get_user_input.to_i
-    system "clear"
-    puts "\e[H\e[2J"
     #title page------
-    pastel = Pastel.new
-    font = TTY::Font.new(:doom)
-    puts pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+    title
     #end title page----
 
     if favorite_to_remove == 0 || favorite_to_remove > get_favorite_rides_array.length

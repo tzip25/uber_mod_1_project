@@ -79,12 +79,13 @@ def view_favorite_locations
         #delete selected location in start and end location tables
         StartLocation.delete(start_loc_to_delete[0].id)
         EndLocation.delete(end_loc_to_delete[0].id)
-        system "clear"
-        puts "\e[H\e[2J"
+        #title page------
+        title
+        #end title page----
         puts "Your location has been deleted!"
         puts "\n"
         print_all_locations
-        
+
         end
         puts "\n"
         location_menu
@@ -99,8 +100,9 @@ def view_favorite_locations
     puts "\nPlease enter the location number you want to add to favorites:"
     #get favorite location name
     favorite_location_number = get_user_input.to_i
-    system "clear"
-    puts "\e[H\e[2J"
+    #title page------
+    title
+    #end title page----
 
     if favorite_location_number == 0 || favorite_location_number > get_uniq_locations.length
       puts "\nPlease enter a number between 1 and #{get_uniq_locations.length}"
@@ -134,8 +136,9 @@ def view_favorite_locations
     puts "\nPlease enter the location number you want to remove from Favorites:"
     #get favorite location name
     favorite_to_remove = get_user_input.to_i
-    system "clear"
-    puts "\e[H\e[2J"
+    #title page------
+    title
+    #end title page----
 
     if favorite_to_remove == 0 || favorite_to_remove > get_favorite_locations_array.length
       puts "\nPlease enter a number between 1 and #{get_favorite_locations_array.length}"
@@ -150,27 +153,3 @@ def view_favorite_locations
     puts "\n"
     view_favorite_locations
   end
-
-    # def delete_location
-    #   view_all_locations
-    #   puts "\nPlease enter the location number you would like to delete:"
-    #   location_to_delete = get_user_input.to_i
-    #   system "clear"
-    #   puts "\e[H\e[2J"
-
-    #   if location_to_delete == 0 || location_to_delete > view_all_locations.length
-    #     puts "Please enter a number between 1 and #{view_all_locations.length}"
-    #     delete_location
-    #   else
-    #     location_name = view_all_locations[location_to_delete-1]
-    #     start_loc_to_delete = StartLocation.where(name: location_name)
-    #     end_loc_to_delete = EndLocation.where(name: location_name)
-
-    #     #delete selected location in start and end location tables
-    #     StartLocation.delete(start_loc_to_delete[0].id)
-    #     EndLocation.delete(end_loc_to_delete[0].id)
-    #     system "clear"
-    #     puts "\e[H\e[2J"
-    #     view_all_locations
-    #     end
-    # end
