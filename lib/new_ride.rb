@@ -117,7 +117,7 @@ def select_from_previous_locations
       #run and persist uber rides and output results
       api_response = get_uber_api(start_address, end_address)
       persist_ride(api_response, start_address, end_address)
-  
+
       #run and persist lyft rides and output results
       lyft_api_response = run_lyft_api(start_address, end_address)
       persist_lyft_ride(lyft_api_response, start_address, end_address)
@@ -125,6 +125,7 @@ def select_from_previous_locations
 end
 
 def self.run_new_ride #had self.
+  
     start_address = get_start_address
     end_address = get_end_address
 

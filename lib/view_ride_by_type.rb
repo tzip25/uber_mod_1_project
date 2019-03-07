@@ -1,7 +1,7 @@
 def pick_type
 
 
-#To get view ride by type to work, we need to pass through the types from the selection. 
+#To get view ride by type to work, we need to pass through the types from the selection.
 #Create an array seperated by a comma and "developerize? Those will be based on the method names... so instead need to write a new method
 #for each different set of arguments.. sound slike a macro"
 #avorite_rides_menu_array = [:add_favorite_ride, :remove_favorite_rides, :show_rides]
@@ -18,6 +18,13 @@ def pick_type
   user_input =  get_user_input.to_i
   system "clear"
   puts "\e[H\e[2J"
+
+  #title page------
+  pastel = Pastel.new
+  font = TTY::Font.new(:doom)
+  puts pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+  #end title page----
+
   if Ride.all.empty?
     puts "You don't have any rides yet!"
     puts "\n"
@@ -25,6 +32,12 @@ def pick_type
   else
   system "clear"
   puts "\e[H\e[2J"
+  #title page------
+  pastel = Pastel.new
+  font = TTY::Font.new(:doom)
+  puts pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+  #end title page----
+  
   if user_input == 1
     ride_date_by_type("UberX", "lyft")
   elsif user_input == 2
@@ -38,7 +51,7 @@ def pick_type
   elsif user_input == 6
     main_menu
   else
-    #add error handling 
+    #add error handling
   end
 end
 end

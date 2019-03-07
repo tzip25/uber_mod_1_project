@@ -11,12 +11,25 @@ def view_by_route
     system "clear"
     puts "\e[H\e[2J"
 
+    #title page------
+    pastel = Pastel.new
+    font = TTY::Font.new(:doom)
+    puts pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+    #end title page----
+
     ride_name = view_all_rides[user_input-1]
     array_length = view_all_rides.length
 
     if user_input == 0 || user_input > array_length
       system "clear"
       puts "\e[H\e[2J"
+
+      #title page------
+      pastel = Pastel.new
+      font = TTY::Font.new(:doom)
+      puts pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+      #end title page----
+
       puts "Please enter a number between 1 and #{array_length}"
       puts "\n"
       select_route
@@ -24,6 +37,13 @@ def view_by_route
       rides = Ride.where(name: ride_name)
       system "clear"
       puts "\e[H\e[2J"
+
+      #title page------
+      pastel = Pastel.new
+      font = TTY::Font.new(:doom)
+      puts pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+      #end title page----
+      
       puts "Route: #{ride_name}"
       rides.each { |ride| puts "#{ride.product_type}: #{ride.estimate}" }
       puts "\n"
