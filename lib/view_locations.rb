@@ -4,34 +4,33 @@ def view_locations
   puts "1. View recent locations"
   puts "2. View all locations"
   puts "3. View Favorite locations"
-  puts "4. Add a location to Favorites"
-  puts "5. Remove a location from Favorites"
-  puts "6. Go back to Main menu"
-  user_input = gets.chomp.to_i
+  puts "4. Delete a location"
+  puts "5. Add a location to Favorites"
+  puts "6. Remove a location from Favorites"
+  puts "7. Go back to Main menu"
+  user_input = get_user_input.to_i
   system "clear"
   puts "\e[H\e[2J"
 
   if user_input == 1
   #todo - instead of last five, show each product type of the last ride name
     view_recent_locations
-
   elsif user_input == 2
     #show all locations
     view_all_locations
-
   elsif user_input == 3
     #show favorites
     view_favorite_locations
-
   elsif user_input == 4
+    #show favorites
+    delete_location
+  elsif user_input == 5
     #add a favorite location
     add_favorite_location
-
-  elsif user_input == 5
-
-    remove_favorite_location
-
   elsif user_input == 6
+    #remove a favorite location
+    remove_favorite_location
+  elsif user_input == 7
     welcome
   else
     "Please select an option from above"
@@ -43,12 +42,8 @@ end
 
 
 def get_uniq_locations
-  start_array = StartLocation.all.map do |start_location|
-    start_location.name
-  end
-  EndLocation.all.each do |end_location|
-    start_array << end_location.name
-  end
+  start_array = StartLocation.all.map { |start_location| start_location.name }
+  EndLocation.all.each { |end_location| start_array << end_location.name }
   uniq_arr = start_array.uniq
   uniq_arr
 end
@@ -60,9 +55,7 @@ def view_all_locations
     welcome
   else
     puts "Here are all of your locations:"
-    get_uniq_locations.each_with_index do |location, i|
-        puts "#{i+1}: #{location}"
-    end
+    get_uniq_locations.each_with_index { |location, i| puts "#{i+1}: #{location}" }
   end
 end
 
@@ -73,11 +66,7 @@ def view_recent_locations
     welcome
   else
     puts "Your three most recent locations are:"
-    get_uniq_locations.each_with_index do |location, i|
-      if i < 3
-        puts "#{i+1}. #{location}"
-      end
-    end
+    get_uniq_locations.reverse.each_with_index { |location, i| ( puts "#{i+1}. #{location}" if i < 3 )}
   end
 end
 
@@ -99,9 +88,7 @@ def view_favorite_locations
       view_locations
     else
       puts "Favorite Locations:"
-      get_favorite_locations_array.each_with_index do |location, i|
-        puts "#{i+1}. #{location}"
-      end
+      get_favorite_locations_array.each_with_index { |location, i| puts "#{i+1}. #{location}" }
     end
   end
 
@@ -111,7 +98,7 @@ def view_favorite_locations
     puts "\n"
     puts "Please enter the location number you want to add to favorites:"
     #get favorite location name
-    favorite_location_number = gets.chomp.to_i
+    favorite_location_number = get_user_input.to_i
     system "clear"
     puts "\e[H\e[2J"
 
@@ -130,10 +117,9 @@ def view_favorite_locations
   def remove_favorite_location
     #delete a location from favorites
     view_favorite_locations
-    puts "\n"
-    puts "Please enter the location number you want to remove from Favorites:"
+    puts "\nPlease enter the location number you want to remove from Favorites:"
     #get favorite location name
-    favorite_to_remove = gets.chomp.to_i
+    favorite_to_remove = get_user_input.to_i
     system "clear"
     puts "\e[H\e[2J"
 
@@ -147,5 +133,28 @@ def view_favorite_locations
       EndLocation.where(name: location_name).update(favorite: false)
       view_favorite_locations
     end
-
   end
+
+    def delete_location
+      view_all_locations
+      puts "\nPlease enter the location number you would like to delete:"
+      location_to_delete = get_user_input.to_i
+      system "clear"
+      puts "\e[H\e[2J"
+
+      if location_to_delete == 0 || location_to_delete > view_all_locations.length
+        puts "Please enter a number between 1 and #{view_all_locations.length}"
+        delete_location
+      else
+        location_name = view_all_locations[location_to_delete-1]
+        start_loc_to_delete = StartLocation.where(name: location_name)
+        end_loc_to_delete = EndLocation.where(name: location_name)
+
+        #delete selected location in start and end location tables
+        StartLocation.delete(start_loc_to_delete[0].id)
+        EndLocation.delete(end_loc_to_delete[0].id)
+        system "clear"
+        puts "\e[H\e[2J"
+        view_all_locations
+        end
+    end

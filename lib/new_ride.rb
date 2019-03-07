@@ -5,20 +5,21 @@ puts "New Ride Menu:"
 puts "1. Enter a new address"
 puts "2. See a list of previous addresses to choose from"
 puts "3. Go back to main menu"
-user_selection = gets.chomp.to_i
+user_input = get_user_input.to_i
+# user_input = gets.chomp.to_i
 #use below to "clear" terminal windown before proceeding
 system "clear"
 puts "\e[H\e[2J"
 
-  if user_selection == 1
+  if user_input == 1
     #run new_ride_menu using runner method
     run_new_ride
-  elsif user_selection == 2
+  elsif user_input == 2
     #get list of addresses from database
     view_all_locations
     #TODO update number validations for this
     run_new_ride
-  elsif user_selection == 3
+  elsif user_input == 3
     welcome
   else
     puts "Dude! That's not a valid selection. Please enter a number between 1 and 3:"
@@ -30,7 +31,7 @@ end
 def get_start_address
   #Gets user's address to start uber ride
   puts "\nPlease enter your START address:"
-  user_start_address = gets.chomp.to_s
+  user_start_address = get_user_input
   #Translates address into lat/long
   results = Geocoder.search(user_start_address)
 
@@ -56,7 +57,7 @@ end
 def get_end_address
   #Gets user's end address for ride
   puts "\nPlease enter your END address:"
-  user_end_address = gets.chomp.to_s
+  user_end_address = get_user_input
   #Translates address into lat/long
   results = Geocoder.search(user_end_address)
 
@@ -79,7 +80,7 @@ def get_end_address
     #I think this is blank because it uses the name of the new datapoint without an updated name.
     puts new_end_location.inspect
     new_end_location
-    
+
   end
 end
 
@@ -124,6 +125,6 @@ def run_new_ride
     #run and persist lyft rides and output results
     lyft_api_response = run_lyft_api(start_address, end_address)
     persist_lyft_ride(lyft_api_response, start_address, end_address)
-
-    new_ride_menu
+    puts "\n"
+    welcome
 end
