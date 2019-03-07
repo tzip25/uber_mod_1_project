@@ -69,14 +69,19 @@ def get_end_address
   else
     results.first.coordinates
     #Persist end location in end table to maintain integrity/reduce duplicates
-    new_end_location = EndLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
+    EndLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
     EndLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_end_address)
     #Persist start location in start table to maintain integrity/reduce duplicates
-    new_start_location = StartLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
+    StartLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
     StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_end_address)
+    new_end_location = EndLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).first
+    new_start_location = StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).first
     #tell the rider where their ride ends and return the address
-    end_name = new_end_location.name
+
+    #I think this is blank because it uses the name of the new datapoint without an updated name.
+    puts new_end_location.inspect
     new_end_location
+    
   end
 end
 
