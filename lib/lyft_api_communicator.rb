@@ -18,4 +18,13 @@ def run_lyft_api(start_address, end_address)
      response.code
      body = response.body
      response = JSON.parse(body)
+
+     #Error handling for lyft api
+       if response["error"] ==  "no_service_in_area"
+         puts "I'm sorry, that is not a valid ride."
+         run_new_ride
+       else
+         response
+       end
+
 end

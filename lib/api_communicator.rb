@@ -24,7 +24,7 @@ end
 response.code
 body = response.body
 response = JSON.parse(body)
-
+# binding.pry
 puts "\n"
 #spinner
 spinner = TTY::Spinner.new(format: :arrow_pulse)
@@ -40,4 +40,3 @@ spinner.stop('Done!') # Stop animation
     run_new_ride
   end
 end
-
