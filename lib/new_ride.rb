@@ -14,7 +14,6 @@ puts "\e[H\e[2J"
     #run new_ride_menu using runner method
     run_new_ride
   elsif user_selection == 2
-    puts "Choose from the locations below:"
     #get list of addresses from database
     view_all_locations
     #TODO update number validations for this
@@ -22,8 +21,7 @@ puts "\e[H\e[2J"
   elsif user_selection == 3
     welcome
   else
-    puts "Dude! That's not 1, 2, or 3! Try again."
-    puts "\n"
+    puts "Dude! That's not a valid selection. Please enter a number between 1 and 3:"
     new_ride_menu
     end
 end

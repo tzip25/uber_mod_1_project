@@ -20,6 +20,7 @@ def show_rides
   puts "\e[H\e[2J"
 
   if user_input == 1
+    #run view by routes
     run_view_routes
   elsif user_input == 2
     #run ride_by_type
@@ -31,6 +32,9 @@ def show_rides
    welcome
   else
     #error handling
+    puts "Please enter a valid option between 1 and 4:"
+    puts "\n"
+    show_rides
   end
 end
 
