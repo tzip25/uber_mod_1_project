@@ -29,7 +29,7 @@ def show_rides
     #Bring up list of favorites
     favorite_rides
   elsif user_input == 4
-   welcome
+   main_menu
   else
     #error handling
     puts "Please enter a valid option between 1 and 4:"

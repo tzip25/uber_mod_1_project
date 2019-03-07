@@ -95,7 +95,7 @@ def add_favorite_ride
   if get_uniq_rides.empty?
     puts "You don't have any rides yet!"
     puts "\n"
-    welcome
+    main_menu
   else
     view_all_rides
     puts "\n"
@@ -120,7 +120,7 @@ def remove_favorite_rides
   if get_uniq_rides.empty?
     puts "You don't have any rides yet!"
     puts "\n"
-    welcome
+    main_menu
   else
   #delete a rides from favorites
     view_favorite_rides

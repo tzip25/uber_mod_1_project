@@ -1,4 +1,4 @@
-def welcome
+def main_menu
   puts "Main Menu"
   puts "1. Start a new ride"
   puts "2. View ride history"
@@ -26,7 +26,7 @@ def welcome
     elsif get_user_input
       #returns error message if not integer 1-4, allows you to enter again
       puts "Please enter a valid option between 1 and 4:"
-      welcome 
+      main_menu 
     end
   end
   #for some reason this doesn't actually exit

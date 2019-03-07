@@ -1,4 +1,5 @@
 require_relative '../config/environment'
 
+puts "hello?"
 puts title
-welcome
+main_menu

@@ -11,7 +11,7 @@
     if view_by_route.empty?
     puts "You don't have any rides yet!"
     puts "\n"
-    welcome
+    main_menu
     else
 
     puts "\nPlease select a route from above:"

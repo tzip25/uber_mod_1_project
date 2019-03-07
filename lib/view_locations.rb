@@ -32,7 +32,7 @@ def view_locations
     remove_favorite_location
 
   elsif user_input == 6
-    welcome
+    main_menu
   else
     "Please select an option from above"
     view_locations

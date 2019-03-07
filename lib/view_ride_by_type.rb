@@ -28,7 +28,7 @@ def pick_type
   elsif get_user_input == 5
     ride_date_by_type("Pool", "lyft_line")
   elsif get_user_input == 6
-    welcome
+    main_menu
   else
     #add error handling 
   end

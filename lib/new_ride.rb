@@ -1,30 +1,38 @@
 
-def new_ride_menu
-puts "\n"
-puts "New Ride Menu:"
-puts "1. Enter a new address"
-puts "2. See a list of previous addresses to choose from"
-puts "3. Go back to main menu"
-user_selection = gets.chomp.to_i
-#use below to "clear" terminal windown before proceeding
-system "clear"
-puts "\e[H\e[2J"
+## def new_ride_menu
+# puts "\n"
+# puts "New Ride Menu:"
+# puts "1. Enter a new address"
+# puts "2. See a list of previous addresses to choose from"
+# puts "3. Go back to main menu"
+# user_selection = gets.chomp.to_i
+# #use below to "clear" terminal windown before proceeding
+# system "clear"
+# puts "\e[H\e[2J"
 
-  if user_selection == 1
-    #run new_ride_menu using runner method
-    run_new_ride
-  elsif user_selection == 2
-    #get list of addresses from database
-    view_all_locations
-    #TODO update number validations for this
-    run_new_ride
-  elsif user_selection == 3
-    welcome
-  else
-    puts "Dude! That's not a valid selection. Please enter a number between 1 and 3:"
-    new_ride_menu
-    end
-end
+#   if user_selection == 1
+#     #run new_ride_menu using runner method
+#     run_new_ride
+#   elsif user_selection == 2
+#     #get list of addresses from database
+#     view_all_locations
+#     #TODO update number validations for this
+#     run_new_ride
+#   elsif user_selection == 3
+#     welcome
+#   else
+#     puts "Dude! That's not a valid selection. Please enter a number between 1 and 3:"
+#     new_ride_menu
+#     end
+## end
+
+new_ride_menu_array = [:run_new_ride, :select_from_previous_locations, :main_menu]
+puts new_ride_menu_array.inspect
+application_builder("New Ride Menu", new_ride_menu_array)
+# run_new_ride
+# select_from_previous_locations #view_all_locations & run_new_ride
+# welcome
+
 
 
 def get_start_address
@@ -111,7 +119,12 @@ def persist_lyft_ride(lyft_api_response, start_address, end_address)
 end
 
 
-def run_new_ride
+def select_from_previous_locations
+  view_all_locations
+  run_new_ride
+end
+
+def self.run_new_ride
     start_address = get_start_address
     end_address = get_end_address
 
