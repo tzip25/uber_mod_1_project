@@ -1,7 +1,51 @@
-<!-- #Uber Project Planning
+
+#README
+
+Make sure to create a good README.md with a short description, install instructions, a contributors guide and a link to the license for your code.
+
+#What it does
+Welcome to the Ride Pricer! The worlds best ride-share price comparison program. 
+Ride Pricer takes in desired ride locations and compares prices estimates between two of the largest ride-share applications.
+
+Features:
+
+New Estimate Comparisons
+A user can create a new ride in order to compare "real-time" price estimates of various ride types and services. The comparison data includes low to high price estimates across the available ride product types at the time Ride Pricer is run.
+
+Estimate analysis
+Estimates can be stored and analyzed by specific rides or by the ride product type.
+
+CRUDing Location and Ride favorites
+Location addresses can be favorited for a history of common locations and locations can be viewed and deleted. 
+
+#How it works
+
+New Estimate Comparisons
+A user enters new addresses as a string and Ride Pricer will map the latitude and longitude through the geocoder gem. Locations are persisted, called, and updated through these coordinates.
+
+Estimate analysis
+Ride Pricer runs and stores price estimate data from the service apis. A user can retrieve this data by product type or ride addresses.
+
+CRUDing Location and Ride favorites
+New locations are persisted to database when a user enters them in to generate new rides.
+
+#How do I install/use it
+Fork and clone this repository. Run bundle install. Add your personal api keys into the appropriate files. Then just follow the menu instructions!
+
+#Contributors guide
+We've made adding menu application functionality easy!
+
+#Future Enhancements
+Allow for user oauth for more accurate estimates and user history persistence.
+Ride estimate data analytics (lowest cost, fastest rides, etc.)
+
+
+<!-- #Ride Pricer Project Planning
 
 User Stories
 - [x] A user should be able to enter an address and retrieve a nicely formatted set of price estimates
+- [x] A user should be able to compare prices between lyft and uber for rides
+- [x] A user should be able to evaluate historical price comparisons between lyft and uber
 - [x] A user should be able to see previous rides
 - [x] A user should be able to see a list of locations
 - [X] A user should be able to update a list of locations
@@ -107,7 +151,7 @@ Projects need to be approved prior to launching into them, so take some time to 
 
 1. Fork and clone this repository.
 2. Build your application. Make sure to commit early and commit often. Commit messages should be meaningful (clearly describe what you're doing in the commit) and accurate (there should be nothing in the commit that doesn't match the description in the commit message). Good rule of thumb is to commit every 3-7 mins of actual coding time. Most of your commits should have under 15 lines of code and a 2 line commit is perfectly acceptable.
-3. Make sure to create a good README.md with a short description, install instructions, a contributors guide and a link to the license for your code.
+
 4. Make sure your project checks off each of the above requirements.
 5. Prepare a video demo (narration helps!) describing how a user would interact with your working project.
     * The video should:
