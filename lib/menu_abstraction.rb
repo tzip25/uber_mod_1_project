@@ -37,9 +37,5 @@ def build_if_tree(application_name, method_names)
 
 def get_user_input
   user_input = gets.chomp
-  if user_input == "exit"
-    exit
-  else
-    user_input
-  end
+  user_input == "exit" ? exit : user_input
 end

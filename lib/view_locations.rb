@@ -23,11 +23,7 @@ def view_recent_locations
     main_menu
   else
     puts "Your three most recent locations are:"
-    get_uniq_locations.reverse.each_with_index do |location, i|
-      if i < 3
-        puts "#{i+1}. #{location}"
-      end
-    end
+    get_uniq_locations.reverse.each_with_index { |location, i| (puts "#{i+1}. #{location}" if i < 3)}
   end
   puts "\n"
   location_menu
@@ -41,14 +37,12 @@ def get_favorite_locations_array
   EndLocation.all.select do |end_location|
     favorite_locations << end_location.name if end_location.favorite == true
   end
-  favorite_locations.uniq
+    favorite_locations.uniq
 end
 
 def prints_favorite_locations
   puts "Favorite Locations:"
-  get_favorite_locations_array.each_with_index do |location, i|
-    puts "#{i+1}. #{location}"
-  end
+  get_favorite_locations_array.each_with_index { |location, i| puts "#{i+1}. #{location}" }
 end
 
 def view_favorite_locations
@@ -94,9 +88,7 @@ def view_favorite_locations
   def add_favorite_location
     #add a location to favorites
     puts "Here are all of your locations:"
-    get_uniq_locations.each_with_index do |location, i|
-        puts "#{i+1}: #{location}"
-    end
+    get_uniq_locations.each_with_index { |location, i| puts "#{i+1}: #{location}" }
     puts "\nPlease enter the location number you want to add to favorites:"
     #get favorite location name
     favorite_location_number = get_user_input.to_i
@@ -124,9 +116,7 @@ def view_favorite_locations
       main_menu
     else
       puts "Here are all of your locations:"
-      get_uniq_locations.each_with_index do |location, i|
-          puts "#{i+1}: #{location}"
-      end
+      get_uniq_locations.each_with_index { |location, i| puts "#{i+1}: #{location}" }
     end
   end
 
