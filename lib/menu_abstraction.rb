@@ -1,3 +1,10 @@
+#####Current Progress:
+#succesfully implemented the new ride menu. Need to:
+#implement other menus based on selection, then:
+#menu looping ;)
+
+
+
 ##########################Abstracted Menu Structure
 #1. Puts a list of menu options based on method input array (string interpolated from menu function name and a "humanize" method)
 #2. does this:
@@ -17,23 +24,23 @@ def build_menu(application_name, method_names)
   puts "#{application_name.humanize}"
   method_names.each_with_index {|method_name, index| puts "#{index + 1}: #{method_name.to_s.humanize}"}
   puts "Please enter your selection:"
-  get_user_input =  gets.chomp
-  system "clear"
-  puts "\e[H\e[2J"
 end
 
 #add while not exit loop
 def build_if_tree(application_name, method_names)
+  get_user_input = gets.chomp
+  # system "clear"
+  # puts "\e[H\e[2J"
   while get_user_input != "exit"
     #look through each option and compare to input, if it has an associated method, run it. If no matches, prompt to enter a valid option and start again.
-    method_name.each_with_index do |method_name, index| 
-    if get_user_input == index + 1
-      method_name
+    method_names.each_with_index do |method_name, index| 
+      if get_user_input.to_i == index + 1
+        return send(method_name)
+      end
     end
-    #returns error message if not a valid option
-    puts "****Error: Please enter a valid number****"
-    application_builder(method_names)
-    end
+        #returns error message if not a valid option
+        puts "****Error: Please enter a valid number****"
+        application_builder(application_name, method_names)
   end
 end
 
