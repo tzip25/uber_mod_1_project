@@ -3,7 +3,7 @@ def application_builder(application_name, method_names)
   # puts "\e[H\e[2J"
   build_menu(application_name, method_names)
   build_if_tree(application_name, method_names)
-  
+
 end
 
 def build_menu(application_name, method_names)
@@ -18,8 +18,15 @@ def build_if_tree(application_name, method_names)
   user_input = get_user_input
   system "clear"
   puts "\e[H\e[2J"
+
+  #title page------
+  pastel = Pastel.new
+  font = TTY::Font.new(:doom)
+  puts pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+  #end title page----
+
     #look through each option and compare to input, if it has an associated method, run it. If no matches, prompt to enter a valid option and start again.
-    method_names.each_with_index do |method_name, index| 
+    method_names.each_with_index do |method_name, index|
       if user_input.to_i == index + 1
         #had return send(method_name)
         send(method_name)
@@ -40,4 +47,3 @@ def get_user_input
     user_input
   end
 end
-  
