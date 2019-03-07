@@ -66,26 +66,26 @@ def persist_ride(api_response, start_address, end_address)
     #persist ride in database
     Ride.find_or_create_by(name: ride_name, start_location_id: start_address.id, end_location_id: end_address.id, product_type: ride["display_name"], estimate: ride["estimate"], high_estimate: ride["high_estimate"], low_estimate: ride["low_estimate"], distance: ride["distance"], duration: ride["duration"])
     # puts "Data for ride from #{start_address.name} to #{end_address.name}"
-    puts "#{ride["display_name"]}: #{ride["estimate"]}"
+    puts "#{ride["display_name"].ljust(15)}: #{ride["estimate"]}"
     end
-    puts "------------------------------------------"
+    puts "---------------------------------------"
 end
 
 def persist_lyft_ride(lyft_api_response, start_address, end_address)
-    puts "\n↓ Check out these sweet Lyft options!"
+    puts "\n↓ Check out these sweet Lyft options!" 
     lyft_api_response["cost_estimates"].each do |ride|
       #convert min and max price estimates to dollars
       min_price_dollars = (ride["estimated_cost_cents_min"].to_f / 100)
       max_price_dollars = (ride["estimated_cost_cents_max"].to_f / 100)
       #create estimate string from min and max prices
-      price_estimate = "$#{min_price_dollars}-#{max_price_dollars}"
+      price_estimate = "$#{min_price_dollars.to_i}-#{max_price_dollars.to_i}"
       #persist ride in database
       Ride.find_or_create_by(name: "#{start_address.name} to #{end_address.name}", start_location_id: start_address.id, end_location_id: end_address.id, product_type: ride["ride_type"], estimate: price_estimate, high_estimate: max_price_dollars, low_estimate: min_price_dollars, distance: ride["estimated_distance_miles"], duration: ride["estimated_duration_seconds"])
 
       # puts "Data for ride from #{start_address.name} to #{end_address.name}"
-      puts "#{ride["ride_type"]}: #{price_estimate}"
+      puts "#{ride["ride_type"].ljust(15)}: #{price_estimate}"
     end
-    puts "------------------------------------------"
+    puts "---------------------------------------"
 end
 
 
