@@ -1,4 +1,4 @@
-def self.show_rides
+def self.view_rides_menu
   # puts "Here is the data from your last price check:"
   # puts "\n"
   # #todo - instead of last five, show each product type of the last ride name
@@ -10,7 +10,7 @@ def self.show_rides
   # puts "\n"
   # welcome
   show_rides_array = [:view_by_route, :view_rides_by_type, :favorite_rides, :main_menu]
-  application_builder("Show Rides", show_rides_array)
+  application_builder("Show Ride Menu", show_rides_array)
    # TODO: LOOPS THROUGH SHOWING ROUTES in view_by_route
 end
  

@@ -1,8 +1,12 @@
 def pick_type
 
 
+#To get view ride by type to work, we need to pass through the types from the selection. 
+#Create an array seperated by a comma and "developerize? Those will be based on the method names... so instead need to write a new method
+#for each different set of arguments.. sound slike a macro"
+#avorite_rides_menu_array = [:add_favorite_ride, :remove_favorite_rides, :show_rides]
+#application_builder("Favorite Rides", favorite_rides_menu_array)
 
-  
   puts "Ride Types"
   puts "1. UberX/Lyft"
   puts "2. UberXL/Lyft Plus"
