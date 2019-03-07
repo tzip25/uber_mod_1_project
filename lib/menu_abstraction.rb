@@ -19,6 +19,7 @@ def application_builder(application_name, method_names)
   build_if_tree(application_name, method_names)
 end
 
+
 def build_menu(application_name, method_names)
   #take array of method names and turn into menu
   puts "#{application_name.humanize}"
@@ -28,13 +29,12 @@ end
 
 #add while not exit loop
 def build_if_tree(application_name, method_names)
-  get_user_input = gets.chomp
+  user_input = get_user_input
   # system "clear"
   # puts "\e[H\e[2J"
-  while get_user_input != "exit"
     #look through each option and compare to input, if it has an associated method, run it. If no matches, prompt to enter a valid option and start again.
     method_names.each_with_index do |method_name, index| 
-      if get_user_input.to_i == index + 1
+      if user_input.to_i == index + 1
         return send(method_name)
       end
     end
@@ -42,9 +42,16 @@ def build_if_tree(application_name, method_names)
         puts "****Error: Please enter a valid number****"
         application_builder(application_name, method_names)
   end
+
+
+def get_user_input
+  user_input = gets.chomp
+  if user_input == "exit"
+    exit
+  else
+    user_input
+  end
 end
-
-
 
 # #then define an if statement based off of those method names, running them insi
 #   define_method(method_name) do

@@ -1,4 +1,8 @@
 def pick_type
+
+
+
+  
   puts "Ride Types"
   puts "1. UberX/Lyft"
   puts "2. UberXL/Lyft Plus"
@@ -47,7 +51,7 @@ end
 
 
 
-def run_ride_by_type
+def view_rides_by_type
   pick_type
   puts "\n"
 end

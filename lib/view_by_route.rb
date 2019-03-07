@@ -1,4 +1,4 @@
-  def view_by_route
+  def view_routes
     #TODO add conditional for no routes
     #will give a unique list of ride names
     #will return all the rides with the name of selected ride
@@ -40,8 +40,8 @@
   end
 end
 
-def run_view_routes
-  view_by_route
+def view_by_route
+  view_routes
   puts "\n"
   select_route
   puts "\n"

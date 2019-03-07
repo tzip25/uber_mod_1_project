@@ -1,45 +1,57 @@
-def view_locations
+def self.view_locations
 
-  puts "Locations Menu:"
-  puts "1. View recent locations"
-  puts "2. View all locations"
-  puts "3. View Favorite locations"
-  puts "4. Add a location to Favorites"
-  puts "5. Remove a location from Favorites"
-  puts "6. Go back to Main menu"
-  user_input = gets.chomp.to_i
-  system "clear"
-  puts "\e[H\e[2J"
 
-  if user_input == 1
-  #todo - instead of last five, show each product type of the last ride name
-    view_recent_locations
-
-  elsif user_input == 2
-    #show all locations
-    view_all_locations
-
-  elsif user_input == 3
-    #show favorites
-    view_favorite_locations
-
-  elsif user_input == 4
-    #add a favorite location
-    add_favorite_location
-
-  elsif user_input == 5
-
-    remove_favorite_location
-
-  elsif user_input == 6
-    main_menu
-  else
-    "Please select an option from above"
-    view_locations
-  end
-  puts "\n"
-  view_locations
+  view_locations_array = [:view_recent_locations, :view_all_locations, :view_favorite_locations, :add_favorite_location, :remove_favorite_location, :main_menu]
+  application_builder("View Locations", view_locations_array)
 end
+
+#   view_recent_locations
+#   view_all_locations
+#   view_favorite_locations
+#   add_favorite_location
+#   remove_favorite_location
+#   main_menu
+
+#   puts "Locations Menu:"
+#   puts "1. View recent locations"
+#   puts "2. View all locations"
+#   puts "3. View Favorite locations"
+#   puts "4. Add a location to Favorites"
+#   puts "5. Remove a location from Favorites"
+#   puts "6. Go back to Main menu"
+#   user_input = gets.chomp.to_i
+#   system "clear"
+#   puts "\e[H\e[2J"
+
+#   if user_input == 1
+#   #todo - instead of last five, show each product type of the last ride name
+#     view_recent_locations
+
+#   elsif user_input == 2
+#     #show all locations
+#     view_all_locations
+
+#   elsif user_input == 3
+#     #show favorites
+#     view_favorite_locations
+
+#   elsif user_input == 4
+#     #add a favorite location
+#     add_favorite_location
+
+#   elsif user_input == 5
+
+#     remove_favorite_location
+
+#   elsif user_input == 6
+#     main_menu
+#   else
+#     "Please select an option from above"
+#     view_locations
+#   end
+#   puts "\n"
+#   view_locations
+# end
 
 
 def get_uniq_locations

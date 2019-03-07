@@ -1,36 +1,10 @@
 
-## def new_ride_menu
-# puts "\n"
-# puts "New Ride Menu:"
-# puts "1. Enter a new address"
-# puts "2. See a list of previous addresses to choose from"
-# puts "3. Go back to main menu"
-# user_selection = gets.chomp.to_i
-# #use below to "clear" terminal windown before proceeding
-# system "clear"
-# puts "\e[H\e[2J"
-
-#   if user_selection == 1
-#     #run new_ride_menu using runner method
-#     run_new_ride
-#   elsif user_selection == 2
-#     #get list of addresses from database
-#     view_all_locations
-#     #TODO update number validations for this
-#     run_new_ride
-#   elsif user_selection == 3
-#     welcome
-#   else
-#     puts "Dude! That's not a valid selection. Please enter a number between 1 and 3:"
-#     new_ride_menu
-#     end
-## end
-
-
-# run_new_ride
-# select_from_previous_locations #view_all_locations & run_new_ride
-# welcome
-
+#Builds new ride menu and application interaction functionality
+##New ride menu options include entering a new ride, running a new ride from a list of previous locaitons, and going back to the main menu
+def self.new_ride_menu
+  new_ride_menu_array = [:run_new_ride, :select_from_previous_locations, :main_menu]
+  application_builder("New Ride Menu", new_ride_menu_array)
+end
 
 
 def get_start_address
@@ -58,7 +32,6 @@ def get_start_address
     new_start_location
   end
 end
-
 
 def get_end_address
   #Gets user's end address for ride
@@ -122,7 +95,7 @@ def select_from_previous_locations
   run_new_ride
 end
 
-def self.run_new_ride
+def self.run_new_ride #had self.
     start_address = get_start_address
     end_address = get_end_address
 
@@ -134,5 +107,4 @@ def self.run_new_ride
     lyft_api_response = run_lyft_api(start_address, end_address)
     persist_lyft_ride(lyft_api_response, start_address, end_address)
 
-    new_ride_menu
 end
