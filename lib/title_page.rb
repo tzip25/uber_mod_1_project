@@ -1,13 +1,24 @@
 
+def welcome_title
+  system "clear"
+  puts "\e[H\e[2J"
+  pastel = Pastel.new
+  font = TTY::Font.new(:doom)
+  title_name = pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+  title_name.each_char { |c| print c; sleep(0.002) }
+  puts "\nWelcome to our sweet ride app!"
+  puts "Type 'exit' at any time to exit."
+  puts "\n"
+
+end
+
 def title
   system "clear"
   puts "\e[H\e[2J"
-
+  # puts "Were in the titele"
   pastel = Pastel.new
   font = TTY::Font.new(:doom)
-  string = pastel.cyan.bold(font.write("  RIDE - PRICER  "))
-  string.each_char { |c| print c; sleep(0.002) }
-  puts "\n"
-  puts "Welcome to our sweet ride app!"
-  puts "Type 'exit' at any time to exit."
+  title_name = pastel.cyan.bold(font.write("  RIDE - PRICER  "))
+  puts title_name
+  title_name
 end

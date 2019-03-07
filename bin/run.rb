@@ -1,7 +1,7 @@
 require_relative '../config/environment'
 
 #Generate initial application title
-puts title
+welcome_title
 
 #Buid main menu and application functionality
 main_menu
@@ -17,13 +17,3 @@ main_menu
 #-  [] Loops menu
 #-  [X] Allows for main menu
 #-  [X] Allows for exit
-
-
-
-
-
-
-
-
-
-
