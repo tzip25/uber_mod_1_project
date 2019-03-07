@@ -1,9 +1,9 @@
 
 #Builds new ride menu and application interaction functionality
 ##New ride menu options include entering a new ride, running a new ride from a list of previous locaitons, and going back to the main menu
-def self.new_ride_menu
-  new_ride_menu_array = [:run_new_ride, :select_from_previous_locations, :main_menu]
-  application_builder("New Ride Menu", new_ride_menu_array)
+def self.start_new_ride
+  start_new_ride_menu_array = [:run_new_ride, :select_from_previous_locations, :main_menu]
+  application_builder("Start New Ride", start_new_ride_menu_array)
 end
 
 
@@ -15,7 +15,7 @@ def get_start_address
   results = Geocoder.search(user_start_address)
 
   if results.empty? #check if address returns empty array (i.e. address is invalid)
-    puts "That is not a valid address."
+    puts "\nThat is not a valid address."
     get_start_address
 
   else
@@ -41,7 +41,7 @@ def get_end_address
   results = Geocoder.search(user_end_address)
 
   if results.empty? #check if address returns empty array (i.e. address is invalid)
-    puts "That is not a valid address."
+    puts "\nThat is not a valid address."
     get_end_address
 
   else
@@ -91,22 +91,22 @@ end
 
 def select_from_previous_locations
   print_all_locations
-  "Please pick a start location:"
+  puts "\nPlease pick a start location:"
   user_input = get_user_input.to_i
   #run_new_ride
   if user_input == 0 || user_input > get_uniq_locations.length
-    puts "\n Please enter a number between 1 and #{get_uniq_locations.length}"
+    puts "\nPlease enter a number between 1 and #{get_uniq_locations.length}"
     select_from_previous_locations
   else
     start_location_name = get_uniq_locations[user_input-1]
     start_address = StartLocation.where(name: start_location_name).first
     #update start and end location in database with favorite
   end
-  puts "\n Please pick an end location:"
+  puts "\nPlease pick an end location:"
   user_input = get_user_input.to_i
   #run_new_ride
   if user_input == 0 || user_input > get_uniq_locations.length
-    puts "\n Please enter a number between 1 and #{get_uniq_locations.length}"
+    puts "\nPlease enter a number between 1 and #{get_uniq_locations.length}"
     select_from_previous_locations
   else
     end_location_name = get_uniq_locations[user_input-1]
@@ -121,7 +121,7 @@ def select_from_previous_locations
       #run and persist lyft rides and output results
       lyft_api_response = run_lyft_api(start_address, end_address)
       persist_lyft_ride(lyft_api_response, start_address, end_address)
-      new_ride_menu
+      start_new_ride
 end
 
 def self.run_new_ride #had self.
@@ -135,5 +135,5 @@ def self.run_new_ride #had self.
     #run and persist lyft rides and output results
     lyft_api_response = run_lyft_api(start_address, end_address)
     persist_lyft_ride(lyft_api_response, start_address, end_address)
-    new_ride_menu
+    start_new_ride
 end

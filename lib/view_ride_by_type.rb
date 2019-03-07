@@ -35,7 +35,7 @@ def pick_type
     ride_date_by_type("Black SUV", "lyft_luxsuv")
   elsif user_input == 5
     ride_date_by_type("Pool", "lyft_line")
-  elsif get_user_input == 6
+  elsif user_input == 6
     main_menu
   else
     #add error handling 
@@ -57,5 +57,5 @@ end
 def view_rides_by_type
   pick_type
   puts "\n"
-  view_rides_menu
+  ride_menu
 end
