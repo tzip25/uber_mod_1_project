@@ -13,7 +13,8 @@
     puts "\n"
     welcome
     else
-    puts "Please select a route"
+
+    puts "\nPlease select a route from above:"
     user_input = gets.chomp.to_i
     system "clear"
     puts "\e[H\e[2J"
@@ -22,11 +23,13 @@
     array_length = view_by_route.length
 
     if user_input == 0 || user_input > array_length
+      system "clear"
+      puts "\e[H\e[2J"
       puts "Please enter a number between 1 and #{array_length}"
+      puts "\n"
       select_route
     else
       rides = Ride.where(name: ride_name)
-      # binding.pry
       system "clear"
       puts "\e[H\e[2J"
       puts "Route: #{ride_name}"

@@ -26,12 +26,7 @@ def welcome
     elsif get_user_input
       #returns error message if not integer 1-4, allows you to enter again
       puts "Please enter a valid option between 1 and 4:"
-      puts "Main Menu"
-      puts "1. Start a new ride"
-      puts "2. Find previous rides"
-      puts "3. View my locations"
-      puts "4. Exit"
-      get_user_input =  gets.chomp
+      welcome 
     end
   end
   #for some reason this doesn't actually exit

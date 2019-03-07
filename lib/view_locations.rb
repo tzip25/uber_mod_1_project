@@ -13,11 +13,9 @@ def view_locations
 
   if user_input == 1
   #todo - instead of last five, show each product type of the last ride name
-  puts "Your three most recent locations are:"
     view_recent_locations
 
   elsif user_input == 2
-    puts "Here are all of your locations:"
     #show all locations
     view_all_locations
 
@@ -56,15 +54,29 @@ def get_uniq_locations
 end
 
 def view_all_locations
-  get_uniq_locations.each_with_index do |location, i|
-      puts "#{i+1}: #{location}"
+  if get_uniq_locations.empty?
+    puts "You don't have any locations yet! Start a new ride to add a location."
+    puts "\n"
+    welcome
+  else
+    puts "Here are all of your locations:"
+    get_uniq_locations.each_with_index do |location, i|
+        puts "#{i+1}: #{location}"
+    end
   end
 end
 
 def view_recent_locations
-  get_uniq_locations.each_with_index do |location, i|
-    if i < 3
-      puts "#{i+1}. #{location}"
+  if get_uniq_locations.empty?
+    puts "You don't have any locations yet! Start a new ride to add a location."
+    puts "\n"
+    welcome
+  else
+    puts "Your three most recent locations are:"
+    get_uniq_locations.each_with_index do |location, i|
+      if i < 3
+        puts "#{i+1}. #{location}"
+      end
     end
   end
 end
