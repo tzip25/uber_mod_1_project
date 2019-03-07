@@ -27,7 +27,7 @@ def view_by_route
       puts "Route: #{ride_name}"
       rides.each { |ride| puts "#{ride.product_type}: #{ride.estimate}" }
       puts "\n"
-      show_rides
+      view_rides_menu
     end
   end
 end

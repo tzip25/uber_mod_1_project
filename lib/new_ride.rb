@@ -91,7 +91,37 @@ end
 
 def select_from_previous_locations
   print_all_locations
-  run_new_ride
+  "Please pick a start location:"
+  user_input = get_user_input.to_i
+  #run_new_ride
+  if user_input == 0 || user_input > get_uniq_locations.length
+    puts "\n Please enter a number between 1 and #{get_uniq_locations.length}"
+    select_from_previous_locations
+  else
+    start_location_name = get_uniq_locations[user_input-1]
+    start_address = StartLocation.where(name: start_location_name).first
+    #update start and end location in database with favorite
+  end
+  puts "\n Please pick an end location:"
+  user_input = get_user_input.to_i
+  #run_new_ride
+  if user_input == 0 || user_input > get_uniq_locations.length
+    puts "\n Please enter a number between 1 and #{get_uniq_locations.length}"
+    select_from_previous_locations
+  else
+    end_location_name = get_uniq_locations[user_input-1]
+    end_address = StartLocation.where(name: end_location_name).first
+    #update start and end location in database with favorite
+  end
+
+      #run and persist uber rides and output results
+      api_response = get_uber_api(start_address, end_address)
+      persist_ride(api_response, start_address, end_address)
+  
+      #run and persist lyft rides and output results
+      lyft_api_response = run_lyft_api(start_address, end_address)
+      persist_lyft_ride(lyft_api_response, start_address, end_address)
+      new_ride_menu
 end
 
 def self.run_new_ride #had self.

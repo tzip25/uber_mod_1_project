@@ -21,7 +21,7 @@ def pick_type
   if Ride.all.empty?
     puts "You don't have any rides yet!"
     puts "\n"
-    welcome
+    main_menu
   else
   system "clear"
   puts "\e[H\e[2J"
@@ -57,5 +57,5 @@ end
 def view_rides_by_type
   pick_type
   puts "\n"
-  show_rides
+  view_rides_menu
 end
