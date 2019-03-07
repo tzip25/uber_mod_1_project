@@ -90,7 +90,7 @@ end
 
 
 def select_from_previous_locations
-  view_all_locations
+  print_all_locations
   run_new_ride
 end
 
