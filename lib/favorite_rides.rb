@@ -14,6 +14,8 @@ def get_uniq_rides
   Ride.all.map { |ride| ride.name}.uniq
 end
 
+#Move some methods to classes
+
 def view_all_rides
   get_uniq_rides.each_with_index { |ride, i| puts "#{i+1}: #{ride}" }
 end
