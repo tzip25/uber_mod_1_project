@@ -6,7 +6,7 @@ def favorite_rides
     puts "1. Add a ride to Favorites"
     puts "2. Remove a ride from Favorites"
     puts "3. Go back to previous menu"
-    user_input = gets.chomp.to_i
+    user_input = get_user_input.to_i
     system "clear"
     puts "\e[H\e[2J"
 
@@ -23,44 +23,39 @@ def favorite_rides
     end
       puts "\n"
       favorite_rides
-  else
-  view_favorite_rides
-  puts "\n"
-  puts "Favorite Ride Menu"
-  puts "1. Add a ride to Favorites"
-  puts "2. Remove a ride from Favorites"
-  puts "3. Go back to rides menu"
-  user_input = gets.chomp.to_i
-  system "clear"
-  puts "\e[H\e[2J"
+    else
+      view_favorite_rides
+      puts "\n"
+      puts "Favorite Ride Menu"
+      puts "1. Add a ride to Favorites"
+      puts "2. Remove a ride from Favorites"
+      puts "3. Go back to rides menu"
+      user_input = get_user_input.to_i
+      system "clear"
+      puts "\e[H\e[2J"
 
-  if user_input == 1
-    add_favorite_ride
-  elsif user_input == 2
-    remove_favorite_rides
-  elsif user_input == 3
-    show_rides
-  else
-    puts "*Error: Please select an option from the Favorite Ride Menu below:*"
-    puts "\n"
-    favorite_rides
-  end
-    puts "\n"
-    favorite_rides
-  end
+    if user_input == 1
+      add_favorite_ride
+    elsif user_input == 2
+      remove_favorite_rides
+    elsif user_input == 3
+      show_rides
+    else
+      puts "*Error: Please select an option from the Favorite Ride Menu below:*"
+      puts "\n"
+      favorite_rides
+    end
+      puts "\n"
+      favorite_rides
+    end
 end
 
-
 def get_uniq_rides
-  Ride.all.map do |ride|
-    ride.name
-  end.uniq
+  Ride.all.map { |ride| ride.name}.uniq
 end
 
 def view_all_rides
-  get_uniq_rides.each_with_index do |ride, i|
-      puts "#{i+1}: #{ride}"
-  end
+  get_uniq_rides.each_with_index { |ride, i| puts "#{i+1}: #{ride}" }
 end
 
 # def view_recent_rides
