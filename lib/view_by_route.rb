@@ -1,3 +1,4 @@
+
 def view_by_route
     if get_uniq_rides.empty?
     puts "You don't have any rides yet!"
@@ -6,7 +7,7 @@ def view_by_route
     else
     view_all_rides
     puts "\nPlease select a route from above:"
-    user_input = gets.chomp.to_i
+    user_input = get_user_input.to_i
     system "clear"
     puts "\e[H\e[2J"
 
@@ -24,9 +25,9 @@ def view_by_route
       system "clear"
       puts "\e[H\e[2J"
       puts "Route: #{ride_name}"
-      rides.each do |ride|
-        puts "#{ride.product_type}: #{ride.estimate}"
-      end
+      rides.each { |ride| puts "#{ride.product_type}: #{ride.estimate}" }
+      puts "\n"
+      show_rides
     end
   end
 end

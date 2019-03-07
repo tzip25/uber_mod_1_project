@@ -8,18 +8,13 @@ def self.favorite_rides
   else
     application_builder("Favorite Rides", favorite_rides_menu_array)
   end
-end
 
 def get_uniq_rides
-  Ride.all.map do |ride|
-    ride.name
-  end.uniq
+  Ride.all.map { |ride| ride.name}.uniq
 end
 
 def view_all_rides
-  get_uniq_rides.each_with_index do |ride, i|
-      puts "#{i+1}: #{ride}"
-  end
+  get_uniq_rides.each_with_index { |ride, i| puts "#{i+1}: #{ride}" }
 end
 
 def get_favorite_rides_array

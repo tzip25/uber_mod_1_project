@@ -10,7 +10,7 @@ end
 def get_start_address
   #Gets user's address to start uber ride
   puts "\nPlease enter your START address:"
-  user_start_address = gets.chomp.to_s
+  user_start_address = get_user_input
   #Translates address into lat/long
   results = Geocoder.search(user_start_address)
 
@@ -36,7 +36,7 @@ end
 def get_end_address
   #Gets user's end address for ride
   puts "\nPlease enter your END address:"
-  user_end_address = gets.chomp.to_s
+  user_end_address = get_user_input
   #Translates address into lat/long
   results = Geocoder.search(user_end_address)
 
@@ -56,7 +56,7 @@ def get_end_address
 
     #I think this is blank because it uses the name of the new datapoint without an updated name.
     new_end_location
-    
+
   end
 end
 
@@ -106,5 +106,4 @@ def self.run_new_ride #had self.
     #run and persist lyft rides and output results
     lyft_api_response = run_lyft_api(start_address, end_address)
     persist_lyft_ride(lyft_api_response, start_address, end_address)
-
 end
