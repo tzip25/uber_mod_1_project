@@ -1,12 +1,12 @@
-def self.favorite_rides
-  favorite_rides_menu_array = [:add_favorite_ride, :remove_favorite_rides, :view_favorite_rides, :view_rides_menu]
+def self.favorite_ride_menu
+  favorite_rides_menu_array = [:add_favorite_ride, :remove_favorite_rides, :view_favorite_rides, :ride_menu]
   if get_favorite_rides_array.empty?
      #do an empty favorite_rides
      puts "You don't have any Favorites! Why don't you add one?"
      puts "\n"
-     application_builder("Favorite Rides", favorite_rides_menu_array)
+     application_builder("Favorite Ride Menu", favorite_rides_menu_array)
   else
-    application_builder("Favorite Rides", favorite_rides_menu_array)
+    application_builder("Favorite Ride Menu", favorite_rides_menu_array)
   end
 end
 
@@ -28,14 +28,15 @@ def view_favorite_rides
   if get_favorite_rides_array.empty?
     puts "You don't have any Favorites! Why don't you add one?"
     puts "\n"
-    favorite_rides
+    favorite_ride_menu
   else
     puts "Favorite rides:"
     get_favorite_rides_array.each_with_index do |ride, i|
       puts "#{i+1}. #{ride}"
     end
+    puts "\n"
   end
-  favorite_rides
+  favorite_ride_menu
 end
 
 def add_favorite_ride
@@ -63,8 +64,9 @@ def add_favorite_ride
     #update start and end ride in database with favorite
     Ride.where(name: ride_name).update(favorite: true)
     puts "Ride added to favorites!"
+    puts "\n"
   end
-  favorite_rides
+  favorite_ride_menu
 end
 
 def remove_favorite_rides
@@ -92,23 +94,25 @@ def remove_favorite_rides
       #update start and end rides in database with favorite
       Ride.where(name: rides_name).update(favorite: false)
       puts "Ride removed from favorites!"
+      puts "\n"
     end
   end
 
     show_favorites_end
-        favorite_rides
+    favorite_ride_menu
 end
 
 def show_favorites_end
           if get_favorite_rides_array.empty?
           puts "You don't have any Favorites! Why don't you add one?"
           puts "\n"
-          favorite_rides
+          favorite_ride_menu
         else
           puts "Favorite rides:"
           get_favorite_rides_array.each_with_index do |ride, i|
             puts "#{i+1}. #{ride}"
           end
+          puts "\n"
         end
 end
   def run_favorite_rides
