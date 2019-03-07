@@ -15,7 +15,6 @@ end
 def title
   system "clear"
   puts "\e[H\e[2J"
-  # puts "Were in the titele"
   pastel = Pastel.new
   font = TTY::Font.new(:doom)
   title_name = pastel.cyan.bold(font.write("  RIDE - PRICER  "))

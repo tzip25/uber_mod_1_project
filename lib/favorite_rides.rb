@@ -33,9 +33,7 @@ def view_favorite_rides
     favorite_ride_menu
   else
     puts "Favorite rides:"
-    get_favorite_rides_array.each_with_index do |ride, i|
-      puts "#{i+1}. #{ride}"
-    end
+    get_favorite_rides_array.each_with_index { |ride, i| puts "#{i+1}. #{ride}" }
     puts "\n"
   end
   favorite_ride_menu

@@ -4,7 +4,6 @@ def pick_type
 #for each different set of arguments.. sound slike a macro"
 #avorite_rides_menu_array = [:add_favorite_ride, :remove_favorite_rides, :show_rides]
 #application_builder("Favorite Rides", favorite_rides_menu_array)
-
   puts "Ride Types"
   puts "1. UberX/Lyft"
   puts "2. UberXL/Lyft Plus"
@@ -41,6 +40,9 @@ def pick_type
     main_menu
   else
     #add error handling
+    puts "\n****Error: Please enter a valid number****"
+    puts "\n"
+    pick_type
   end
 end
 end
