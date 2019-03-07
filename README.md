@@ -53,9 +53,11 @@ Optional optional:
     - [ ] Sounds
 
 Bug List:
-- [] Database locations show correct names but ride name has blanks
-- - [ ] catch menu errors - user cannot enter number above available options
-  - [ ] Fix on all menus
+- [ ] View route shows route twice
+- [ ] Force number entry on new ride if show locations
+- [X] Database locations show correct names but ride name has blanks
+- - [X] catch menu errors - user cannot enter number above available options
+  - [X] Fix on all menus
 - [x] If geocoder has slightly different lat/long
 - [x] fix view rides - not showing ride name
   - [x] also want to rework this feature in general

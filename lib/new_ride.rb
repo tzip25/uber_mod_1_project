@@ -40,14 +40,15 @@ def get_start_address
 
   else
     results.first.coordinates
-    #Persist start location in start table to maintain integrity/reduce duplicates
-    new_start_location = StartLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
-    StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_start_address)
     #Persist end location in end table to maintain integrity/reduce duplicates
-    new_end_location = EndLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
-    EndLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_start_address)
-    #tell the rider where their ride starts and return the address
-    start_name = new_start_location.name
+    StartLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
+    StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_start_address)
+    #Persist start location in start table to maintain integrity/reduce duplicates
+    StartLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
+    StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_start_address)
+    new_start_location = StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).first
+
+    #I think this is blank because it uses the name of the new datapoint without an updated name.
     new_start_location
   end
 end
@@ -73,11 +74,8 @@ def get_end_address
     StartLocation.find_or_create_by(lat: results.first.coordinates[0], long: results.first.coordinates[1])
     StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).update(name: user_end_address)
     new_end_location = EndLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).first
-    new_start_location = StartLocation.where(lat: results.first.coordinates[0], long: results.first.coordinates[1]).first
-    #tell the rider where their ride ends and return the address
 
     #I think this is blank because it uses the name of the new datapoint without an updated name.
-    puts new_end_location.inspect
     new_end_location
     
   end
