@@ -8,6 +8,7 @@ def self.favorite_rides
   else
     application_builder("Favorite Rides", favorite_rides_menu_array)
   end
+end
 
 def get_uniq_rides
   Ride.all.map { |ride| ride.name}.uniq

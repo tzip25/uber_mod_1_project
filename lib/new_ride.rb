@@ -56,7 +56,6 @@ def get_end_address
 
     #I think this is blank because it uses the name of the new datapoint without an updated name.
     new_end_location
-
   end
 end
 
@@ -106,4 +105,5 @@ def self.run_new_ride #had self.
     #run and persist lyft rides and output results
     lyft_api_response = run_lyft_api(start_address, end_address)
     persist_lyft_ride(lyft_api_response, start_address, end_address)
+    new_ride_menu
 end
