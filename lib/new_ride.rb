@@ -14,7 +14,9 @@ def get_start_address
   #Translates address into lat/long
   results = Geocoder.search(user_start_address)
 
-  if results.empty? #check if address returns empty array (i.e. address is invalid)
+  #check if address returns empty array (i.e. address is invalid)
+  if results.empty?
+  # if results.empty? || user_start_address.scan(/\D/).empty? ---- antoher option to check if only a digi is entered as address 
     puts "\nThat is not a valid address."
     get_start_address
 
@@ -73,7 +75,7 @@ def persist_ride(api_response, start_address, end_address)
 end
 
 def persist_lyft_ride(lyft_api_response, start_address, end_address)
-    puts "\n↓ Check out these sweet Lyft options!" 
+    puts "\n↓ Check out these sweet Lyft options!"
     lyft_api_response["cost_estimates"].each do |ride|
       #convert min and max price estimates to dollars
       min_price_dollars = (ride["estimated_cost_cents_min"].to_f / 100)
@@ -127,7 +129,7 @@ def select_from_previous_locations
       start_new_ride
 end
 
-def self.run_new_ride 
+def self.run_new_ride
 
     start_address = get_start_address
     end_address = get_end_address
