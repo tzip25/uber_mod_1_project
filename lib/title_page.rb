@@ -1,4 +1,5 @@
 
+#Initial welcome title fun graphic
 def welcome_title
   system "clear"
   puts "\e[H\e[2J"
@@ -12,6 +13,7 @@ def welcome_title
 
 end
 
+#Persist title at top
 def title
   system "clear"
   puts "\e[H\e[2J"

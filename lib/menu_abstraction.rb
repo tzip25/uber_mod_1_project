@@ -1,16 +1,12 @@
 
-#How I think I could do this
-#I am currently passing through symbols, which get turned into strings for menu output and called as sumbls to active the method.
-#Can I treat them as symbols that are keywords of a hash with optional arguments, and have that argument be an input to be run somehow?
 
+#Build out terminal application menu and user interaction behavior
 def application_builder(application_name, method_names)
-  # system "clear"
-  # puts "\e[H\e[2J"
   build_menu(application_name, method_names)
   build_if_tree(application_name, method_names)
-
 end
 
+#Dynamically build menu based off of methods used in this portion of the application (the portion defined by the menu)
 def build_menu(application_name, method_names)
   #take array of method names and turn into menu
   puts "#{application_name.humanize}"
@@ -18,7 +14,7 @@ def build_menu(application_name, method_names)
   puts "\nPlease enter your selection:"
 end
 
-#add while not exit loop
+#Dynamically build application interaction functionality (if tree based on menu selection that runs selected methods)
 def build_if_tree(application_name, method_names)
   user_input = get_user_input
 
@@ -40,6 +36,7 @@ def build_if_tree(application_name, method_names)
         end
   end
 
+#Get user input, exit on exit
 def get_user_input
   user_input = gets.chomp
   user_input == "exit" ? exit : user_input
