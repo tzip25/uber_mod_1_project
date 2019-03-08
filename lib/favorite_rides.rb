@@ -1,3 +1,4 @@
+#Build favorite rides menu
 def self.favorite_ride_menu
   favorite_rides_menu_array = [:add_favorite_ride, :remove_favorite_rides, :view_favorite_rides, :ride_menu]
   if get_favorite_rides_array.empty?
@@ -13,8 +14,6 @@ end
 def get_uniq_rides
   Ride.all.map { |ride| ride.name}.uniq
 end
-
-#Move some methods to classes
 
 def view_all_rides
   get_uniq_rides.each_with_index { |ride, i| puts "#{i+1}: #{ride}" }

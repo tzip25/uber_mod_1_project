@@ -2,8 +2,6 @@ require 'net/http'
 require 'uri'
 
 ######### Uber API #################
-# Think there is a bug here - when there is an error with the api we do not persist the ride so geting locations from db doesn't work
-# To solve this may wnat to review get_start_address/get_end_address and whether we can get lat long from them
 def get_uber_api(start_address, end_address)
 #convert Uber curl API to ruby
 
