@@ -1,6 +1,6 @@
 #Build favorite rides menu
 def self.favorite_ride_menu
-  favorite_rides_menu_array = [:add_favorite_ride, :remove_favorite_rides, :view_favorite_rides, :ride_menu]
+  favorite_rides_menu_array = [:view_favorite_rides, :add_favorite_ride, :remove_favorite_rides, :ride_menu]
   if get_favorite_rides_array.empty?
      #do an empty favorite_rides
      puts "You don't have any Favorites! Why don't you add one?"
@@ -68,6 +68,7 @@ def add_favorite_ride
     puts "Ride added to favorites!"
     puts "\n"
   end
+  show_favorites_end
   favorite_ride_menu
 end
 
@@ -120,6 +121,7 @@ def show_favorites_end
           puts "\n"
         end
 end
+
   def run_favorite_rides
     view_favorite_rides
   end

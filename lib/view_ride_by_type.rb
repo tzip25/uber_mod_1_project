@@ -19,6 +19,7 @@ def self.ride_by_type_menu
       rides_arr.each do |ride|
         puts "#{ride.name.ljust(50)} | #{ride.product_type.ljust(12)} | #{ride.estimate.ljust(12)} | #{ride.created_at}"
       end
+      puts "\n"
       ride_menu
     end
   end

@@ -25,7 +25,7 @@ def view_by_route
 
       puts "Please enter a number between 1 and #{array_length}"
       puts "\n"
-      select_route
+      view_by_route
     #if no errors
     else
       rides = Ride.where(name: ride_name)
@@ -35,7 +35,7 @@ def view_by_route
 
       #puts actual route estimate data
       puts "Route: #{ride_name}"
-      rides.each { |ride| puts "#{ride.product_type}: #{ride.estimate}" }
+      rides.each { |ride| puts "#{ride.product_type.ljust(15)} Est: #{ride.estimate}" }
       puts "\n"
       ride_menu
     end
