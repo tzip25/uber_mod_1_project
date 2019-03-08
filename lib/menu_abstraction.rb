@@ -32,6 +32,7 @@ def build_if_tree(application_name, method_names)
         #returns error message if not a valid option
         if !user_input.to_i.between?(1, method_names.length)
         puts "\n****Error: Please enter a valid number****"
+        puts "\n"
         application_builder(application_name, method_names)
         end
   end

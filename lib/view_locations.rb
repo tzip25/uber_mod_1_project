@@ -1,4 +1,4 @@
-#Builds out application menu and method functionality 
+#Builds out application menu and method functionality
 def self.location_menu
   location_menu_array = [:view_recent_locations, :view_all_locations, :delete_location, :view_favorite_locations, :add_favorite_location, :remove_favorite_location, :main_menu]
   application_builder("View Locations", location_menu_array)
@@ -95,52 +95,66 @@ def delete_location
 
   #Add favorite location functionality
   def add_favorite_location
-    #add a location to favorites
-    puts "Here are all of your locations:"
-    get_uniq_locations.each_with_index { |location, i| puts "#{i+1}: #{location}" }
-    puts "\nPlease enter the location number you want to add to favorites:"
-    #get favorite location name
-    favorite_location_number = get_user_input.to_i
-    #title page------
-    title
-    #end title page----
 
-    if favorite_location_number == 0 || favorite_location_number > get_uniq_locations.length
-      puts "\nPlease enter a number between 1 and #{get_uniq_locations.length}"
-      add_favorite_location
+    if get_uniq_locations.empty?
+      puts "You don't have any locations yet! Start a new ride to add a location."
+      puts "\n"
+      location_menu
     else
-      location_name = get_uniq_locations[favorite_location_number-1]
-      #update start and end location in database with favorite
-      StartLocation.where(name: location_name).update(favorite: true)
-      EndLocation.where(name: location_name).update(favorite: true)
+      #add a location to favorites
+      puts "Here are all of your locations:"
+      get_uniq_locations.each_with_index { |location, i| puts "#{i+1}: #{location}" }
+      puts "\nPlease enter the location number you want to add to favorites:"
+      #get favorite location name
+      favorite_location_number = get_user_input.to_i
+      #title page------
+      title
+      #end title page----
+
+      if favorite_location_number == 0 || favorite_location_number > get_uniq_locations.length
+        puts "\nPlease enter a number between 1 and #{get_uniq_locations.length}"
+        add_favorite_location
+      else
+        location_name = get_uniq_locations[favorite_location_number-1]
+        #update start and end location in database with favorite
+        StartLocation.where(name: location_name).update(favorite: true)
+        EndLocation.where(name: location_name).update(favorite: true)
+      end
+      puts "\n"
+      view_favorite_locations
     end
-    puts "\n"
-    view_favorite_locations
   end
-  
+
   #Remove favorite location functionality
   def remove_favorite_location
-    #delete a location from favorites
-    prints_favorite_locations
-    puts "\nPlease enter the location number you want to remove from Favorites:"
-    #get favorite location name
-    favorite_to_remove = get_user_input.to_i
-    #title page------
-    title
-    #end title page----
 
-    if favorite_to_remove == 0 || favorite_to_remove > get_favorite_locations_array.length
-      puts "\nPlease enter a number between 1 and #{get_favorite_locations_array.length}"
-      remove_favorite_location
+    if get_favorite_locations_array.empty?
+      puts "You don't have any Favorites! Why don't you add one?"
+      puts "\n"
+      location_menu
     else
-      location_name = get_favorite_locations_array[favorite_to_remove-1]
-      #update start and end location in database with favorite
-      StartLocation.where(name: location_name).update(favorite: false)
-      EndLocation.where(name: location_name).update(favorite: false)
-      puts "Your favorite has been removed!"
+      #delete a location from favorites
+      prints_favorite_locations
+      puts "\nPlease enter the location number you want to remove from Favorites:"
+      #get favorite location name
+      favorite_to_remove = get_user_input.to_i
+      #title page------
+      title
+      #end title page----
+
+      if favorite_to_remove == 0 || favorite_to_remove > get_favorite_locations_array.length
+        puts "\nPlease enter a number between 1 and #{get_favorite_locations_array.length}"
+        remove_favorite_location
+      else
+        location_name = get_favorite_locations_array[favorite_to_remove-1]
+        #update start and end location in database with favorite
+        StartLocation.where(name: location_name).update(favorite: false)
+        EndLocation.where(name: location_name).update(favorite: false)
+        puts "Your favorite has been removed!"
+      end
+      puts "\n"
+      view_favorite_locations
     end
-    puts "\n"
-    view_favorite_locations
   end
 
    #Prints all locations
