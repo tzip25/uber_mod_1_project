@@ -1,3 +1,8 @@
+
+#How I think I could do this
+#I am currently passing through symbols, which get turned into strings for menu output and called as sumbls to active the method.
+#Can I treat them as symbols that are keywords of a hash with optional arguments, and have that argument be an input to be run somehow?
+
 def application_builder(application_name, method_names)
   # system "clear"
   # puts "\e[H\e[2J"
