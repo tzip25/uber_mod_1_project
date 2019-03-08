@@ -64,9 +64,10 @@ def persist_ride(api_response, start_address, end_address)
     puts "\n↓ Check out these sweet Uber options!"
     api_response["prices"].each do |ride|
     #persist ride in database
-    Ride.find_or_create_by(name: ride_name, start_location_id: start_address.id, end_location_id: end_address.id, product_type: ride["display_name"], estimate: ride["estimate"], high_estimate: ride["high_estimate"], low_estimate: ride["low_estimate"], distance: ride["distance"], duration: ride["duration"])
+    avg_estimate = (ride["high_estimate"] + ride["low_estimate"]) / 2
+    Ride.find_or_create_by(name: ride_name, start_location_id: start_address.id, end_location_id: end_address.id, product_type: ride["display_name"], estimate: ride["estimate"], high_estimate: ride["high_estimate"], low_estimate: ride["low_estimate"], avg_estimate: avg_estimate, distance: ride["distance"], duration: ride["duration"])
     # puts "Data for ride from #{start_address.name} to #{end_address.name}"
-    puts "#{ride["display_name"].ljust(15)}: #{ride["estimate"]}"
+    puts "#{ride["display_name"].ljust(15)} avg. $#{avg_estimate.to_s.ljust(15)} est: #{ride["estimate"]}"
     end
     puts "---------------------------------------"
 end
@@ -79,11 +80,13 @@ def persist_lyft_ride(lyft_api_response, start_address, end_address)
       max_price_dollars = (ride["estimated_cost_cents_max"].to_f / 100)
       #create estimate string from min and max prices
       price_estimate = "$#{min_price_dollars.to_i}-#{max_price_dollars.to_i}"
+      avg_estimate = (min_price_dollars + max_price_dollars) / 2
+
       #persist ride in database
-      Ride.find_or_create_by(name: "#{start_address.name} to #{end_address.name}", start_location_id: start_address.id, end_location_id: end_address.id, product_type: ride["ride_type"], estimate: price_estimate, high_estimate: max_price_dollars, low_estimate: min_price_dollars, distance: ride["estimated_distance_miles"], duration: ride["estimated_duration_seconds"])
+      Ride.find_or_create_by(name: "#{start_address.name} to #{end_address.name}", start_location_id: start_address.id, end_location_id: end_address.id, product_type: ride["ride_type"], estimate: price_estimate, high_estimate: max_price_dollars, low_estimate: min_price_dollars, avg_estimate: avg_estimate, distance: ride["estimated_distance_miles"], duration: ride["estimated_duration_seconds"])
 
       # puts "Data for ride from #{start_address.name} to #{end_address.name}"
-      puts "#{ride["ride_type"].ljust(15)}: #{price_estimate}"
+      puts "#{ride["ride_type"].ljust(15)} avg. $#{avg_estimate.to_s.ljust(15)} est: #{price_estimate}"
     end
     puts "---------------------------------------"
 end

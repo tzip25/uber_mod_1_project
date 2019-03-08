@@ -35,7 +35,7 @@ def view_by_route
 
       #puts actual route estimate data
       puts "Route: #{ride_name}"
-      rides.each { |ride| puts "#{ride.product_type.ljust(15)} Est: #{ride.estimate}" }
+      rides.each { |ride| puts "#{ride.product_type.ljust(15)} avg $#{ride.avg_estimate} est #{ride.estimate}" }
       puts "\n"
       ride_menu
     end
