@@ -35,6 +35,7 @@ spinner.stop('Done!') # Stop animation
     response
   else
     puts "I'm sorry, that is not a valid ride."
-    run_new_ride
+    puts "\n"
+    start_new_ride
   end
 end
