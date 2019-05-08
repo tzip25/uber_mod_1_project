@@ -1,9 +1,10 @@
 
 #Builds new ride menu and application interaction functionality
 ##New ride menu options include entering a new ride, running a new ride from a list of previous locaitons, and going back to the main menu
-def self.start_new_ride
+def start_new_ride
   start_new_ride_menu_array = [:run_new_ride, :select_from_previous_locations, :main_menu]
-  application_builder("Start New Ride", start_new_ride_menu_array)
+  new_ride_menu = CliBuilder::Menu.new(title: "Start New Ride", menu_options: start_new_ride_menu_array)
+  new_ride_menu.build_menu
 end
 
 
