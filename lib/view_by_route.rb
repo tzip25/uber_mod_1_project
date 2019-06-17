@@ -4,7 +4,6 @@ def view_by_route
     if get_uniq_rides.empty?
     puts "You don't have any rides yet!"
     puts "\n"
-    main_menu
     else
     #if rides exist
     view_all_rides
@@ -25,7 +24,6 @@ def view_by_route
 
       puts "Please enter a number between 1 and #{array_length}"
       puts "\n"
-      view_by_route
     #if no errors
     else
       rides = Ride.where(name: ride_name)
@@ -37,7 +35,6 @@ def view_by_route
       puts "Route: #{ride_name}"
       rides.each { |ride| puts "#{ride.product_type.ljust(15)} avg $#{ride.avg_estimate} est #{ride.estimate}" }
       puts "\n"
-      ride_menu
     end
   end
 end

@@ -1,12 +1,12 @@
 
 
 #We could make this more extensible by mapping product types in the db and building the array from the db...
-def self.ride_by_type_menu
+def ride_by_type_menu
   ride_type_array = ["UberX & lyft", "UberXL & lyft_plus", "Black & lyft_lux", "Black SUV & lyft_luxsuv", "UberPool & lyft_line"]
 
   #Dynamically defines methods for the application builder using the product types
   ride_type_array.each_with_index do |mapped_product_type, index|
-    define_method :"#{mapped_product_type}" do
+    define_single_method :"#{mapped_product_type}" do
 
       #breaks apart product types to access appropriate db values
       uber = mapped_product_type.split(" & ")[0]

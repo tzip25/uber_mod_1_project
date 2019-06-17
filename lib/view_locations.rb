@@ -1,8 +1,5 @@
-#Builds out application menu and method functionality
-def self.location_menu
-  location_menu_array = [:view_recent_locations, :view_all_locations, :delete_location, :view_favorite_locations, :add_favorite_location, :remove_favorite_location, :main_menu]
-  application_builder("View Locations", location_menu_array)
-end
+
+
 
 #Turns db location names into list of uniq values for printing etc.
 def get_uniq_locations
@@ -16,7 +13,7 @@ end
 def view_all_locations
   print_all_locations
   puts "\n"
-  location_menu
+
 end
 
 #Prints out 3 most recent locations
@@ -24,13 +21,12 @@ def view_recent_locations
   if get_uniq_locations.empty?
     puts "You don't have any locations yet! Start a new ride to add a location."
     puts "\n"
-    main_menu
+    
   else
     puts "Your three most recent locations are:"
     get_uniq_locations.reverse.each_with_index { |location, i| (puts "#{i+1}. #{location}" if i < 3)}
   end
   puts "\n"
-  location_menu
 end
 
 #Gets favorite locations from db into array for manipulation for printing
@@ -56,12 +52,12 @@ def view_favorite_locations
     if get_favorite_locations_array.empty?
       puts "You don't have any Favorites! Why don't you add one?"
       puts "\n"
-      location_menu
+    
     else
       prints_favorite_locations
     end
     puts "\n"
-    location_menu
+  
   end
 
 #Delete location functionality
@@ -90,7 +86,7 @@ def delete_location
 
       end
       puts "\n"
-      location_menu
+    
   end
 
   #Add favorite location functionality
@@ -99,7 +95,7 @@ def delete_location
     if get_uniq_locations.empty?
       puts "You don't have any locations yet! Start a new ride to add a location."
       puts "\n"
-      location_menu
+    
     else
       #add a location to favorites
       puts "Here are all of your locations:"
@@ -131,7 +127,7 @@ def delete_location
     if get_favorite_locations_array.empty?
       puts "You don't have any Favorites! Why don't you add one?"
       puts "\n"
-      location_menu
+    
     else
       #delete a location from favorites
       prints_favorite_locations
@@ -162,7 +158,7 @@ def delete_location
     if get_uniq_locations.empty?
       puts "You don't have any locations yet! Start a new ride to add a location."
       puts "\n"
-      main_menu
+      
     else
       puts "Here are all of your locations:"
       get_uniq_locations.each_with_index { |location, i| puts "#{i+1}: #{location}" }

@@ -1,12 +1,6 @@
 
 #Builds new ride menu and application interaction functionality
 ##New ride menu options include entering a new ride, running a new ride from a list of previous locaitons, and going back to the main menu
-def start_new_ride
-  start_new_ride_menu_array = [:run_new_ride, :select_from_previous_locations, :main_menu]
-  new_ride_menu = CliBuilder::Menu.new(title: "Start New Ride", menu_options: start_new_ride_menu_array)
-  new_ride_menu.build_menu
-end
-
 
 def get_start_address
   #Gets user's address to start uber ride
@@ -130,8 +124,7 @@ def select_from_previous_locations
       start_new_ride
 end
 
-def self.run_new_ride
-
+def run_new_ride
     start_address = get_start_address
     end_address = get_end_address
 

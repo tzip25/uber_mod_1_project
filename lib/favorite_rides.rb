@@ -1,15 +1,4 @@
-#Build favorite rides menu
-def self.favorite_ride_menu
-  favorite_rides_menu_array = [:view_favorite_rides, :add_favorite_ride, :remove_favorite_rides, :ride_menu]
-  if get_favorite_rides_array.empty?
-     #do an empty favorite_rides
-     puts "You don't have any Favorites! Why don't you add one?"
-     puts "\n"
-     application_builder("Favorite Ride Menu", favorite_rides_menu_array)
-  else
-    application_builder("Favorite Ride Menu", favorite_rides_menu_array)
-  end
-end
+
 
 def get_uniq_rides
   Ride.all.map { |ride| ride.name}.uniq
@@ -29,13 +18,13 @@ def view_favorite_rides
   if get_favorite_rides_array.empty?
     puts "You don't have any Favorites! Why don't you add one?"
     puts "\n"
-    favorite_ride_menu
+    
   else
     puts "Favorite rides:"
     get_favorite_rides_array.each_with_index { |ride, i| puts "#{i+1}. #{ride}" }
     puts "\n"
   end
-  favorite_ride_menu
+  
 end
 
 def add_favorite_ride
@@ -46,7 +35,7 @@ def add_favorite_ride
   if get_uniq_rides.empty?
     puts "You don't have any rides yet!"
     puts "\n"
-    main_menu
+    
   else
     view_all_rides
     puts "\n"
@@ -69,7 +58,7 @@ def add_favorite_ride
     puts "\n"
   end
   show_favorites_end
-  favorite_ride_menu
+  
 end
 
 def remove_favorite_rides
@@ -80,7 +69,7 @@ def remove_favorite_rides
   if get_uniq_rides.empty?
     puts "You don't have any rides yet!"
     puts "\n"
-    main_menu
+    
   else
   #delete a rides from favorites
   show_favorites_end
@@ -105,14 +94,14 @@ def remove_favorite_rides
   end
 
     show_favorites_end
-    favorite_ride_menu
+    
 end
 
 def show_favorites_end
           if get_favorite_rides_array.empty?
           puts "You don't have any Favorites! Why don't you add one?"
           puts "\n"
-          favorite_ride_menu
+          
         else
           puts "Favorite rides:"
           get_favorite_rides_array.each_with_index do |ride, i|
