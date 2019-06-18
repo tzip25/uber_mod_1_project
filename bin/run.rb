@@ -1,6 +1,6 @@
 require_relative '../config/environment'
 require '/Users/ryanrosztoczy/Development/Projects/Gems/cli_builder/lib/cli_builder.rb'
-# require '/Users/ryanrosztoczy/Development/Projects/Gems/cli_builder/lib/cli_builder/menu.rb'
+# require '/Users/ryanrosztoczy/Development/Projects/Gems/csli_builder/lib/cli_builder/menu.rb'
 # require '/Users/ryanrosztoczy/Development/Projects/Gems/cli_builder/lib/cli_builder/crud.rb'
 
 
