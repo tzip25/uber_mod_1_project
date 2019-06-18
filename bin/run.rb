@@ -1,12 +1,14 @@
 require_relative '../config/environment'
-require '/Users/ryanrosztoczy/Development/Projects/Gems/cli_builder/lib/cli_builder/menu.rb'
-require '/Users/ryanrosztoczy/Development/Projects/Gems/cli_builder/lib/cli_builder/crud.rb'
+require '/Users/ryanrosztoczy/Development/Projects/Gems/cli_builder/lib/cli_builder.rb'
+# require '/Users/ryanrosztoczy/Development/Projects/Gems/cli_builder/lib/cli_builder/menu.rb'
+# require '/Users/ryanrosztoczy/Development/Projects/Gems/cli_builder/lib/cli_builder/crud.rb'
 
 
 # #Generate initial application title
 welcome_title
 
 #Buid main menu and application functionality
+
 
   start_new_ride_menu_array = [:run_new_ride, :select_from_previous_locations]
   new_ride_menu = CliBuilder::Menu.new(title: "Start New Ride", menu_options: start_new_ride_menu_array)
