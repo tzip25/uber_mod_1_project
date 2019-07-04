@@ -34,8 +34,8 @@ spinner.stop('Done!') # Stop animation
   if !response["prices"].nil?
     response
   else
-    puts "I'm sorry, that is not a valid ride."
+    puts "I'm sorry, that is not a valid ride. #{response}"
     puts "\n"
-    start_new_ride
+    run_new_ride
   end
 end

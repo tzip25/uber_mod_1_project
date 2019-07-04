@@ -22,7 +22,7 @@ def run_lyft_api(start_address, end_address)
      #Error handling for lyft api
        if response["error"] ==  "no_service_in_area"
          puts "I'm sorry, that is not a valid ride."
-         start_new_ride
+         run_new_ride
        else
          puts "\n"
          response

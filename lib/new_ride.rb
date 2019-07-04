@@ -121,7 +121,7 @@ def select_from_previous_locations
       #run and persist lyft rides and output results
       lyft_api_response = run_lyft_api(start_address, end_address)
       persist_lyft_ride(lyft_api_response, start_address, end_address)
-      start_new_ride
+      run_new_ride
 end
 
 def run_new_ride
@@ -135,5 +135,5 @@ def run_new_ride
     #run and persist lyft rides and output results
     lyft_api_response = run_lyft_api(start_address, end_address)
     persist_lyft_ride(lyft_api_response, start_address, end_address)
-    start_new_ride
+    run_new_ride
 end
